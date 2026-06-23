@@ -31,6 +31,8 @@
             withUWSM = true;
         };
 
+        hyprlock.enable = true;
+
         tmux = {
             enable = true;
             baseIndex = 1;

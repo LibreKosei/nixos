@@ -79,6 +79,8 @@ in
         };
 
         tailscale.enable = true;
+
+        hypridle.enable = true;
     };
 
     powerManagement.enable = true;
