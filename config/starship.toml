@@ -1,0 +1,62 @@
+add_newline = true
+
+format = """
+$os\
+$directory\
+$git_branch $git_status\
+$time\
+$status\
+$nix_shell\
+$line_break\
+$character\
+"""
+
+palette = 'everblush'
+
+[palettes.everblush]
+background = "#141b1e"
+lighter_background = "#232a2d"
+red = "#e57474"
+green = "#8ccf7e"
+yellow = "#e5c76b"
+blue = "#67b0e8"
+magenta = "#c47fd5"
+cyan = "#6cbfbf"
+light_gray = "#b3b9b8"
+foreground = "#dadada"
+
+[directory]
+format = "  [](fg:light_gray)[$path](bg:light_gray fg:background)[](fg:light_gray)[$read_only](fg:yellow)  "
+
+[os]
+format = "[$symbol](fg:blue)"
+disabled = false
+
+[os.symbols]
+NixOS = ""
+
+[nix_shell]
+format = '  in [$state](fg:magenta) [$symbol](fg:magenta bg:lighter_background) '
+symbol = ""
+
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)](bold cyan)"
+
+[git_status]
+format = "[$all_status$ahead_behind](bold yellow) "
+deleted = "✘${count} "
+untracked = "?${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+
+[time]
+disabled = false
+format = " [󱦟 $time](bold blue)"
