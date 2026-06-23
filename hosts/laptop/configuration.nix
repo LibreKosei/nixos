@@ -118,7 +118,19 @@ in
 
     nixpkgs.config.allowUnfree = true;
 
-    environment.pathsToLink = [ "/share/zsh" ];
+    environment = {
+        pathsToLink = [ "/share/zsh" ];
+        sessionVariables = {
+            NIXOS_OZONE_WL = "1";
+            QT_QPA_PLATFORM = "wayland;xcb";
+            QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+            MOZ_ENABLE_WAYLAND = "1";
+            SDL_VIDEODRIVER = "wayland";
+            CLUTTER_BACKEND = "wayland";
+            XDG_SESSION_TYPE = "wayland";
+            XDG_CURRENT_DESKTOP = "Hyprland";
+        };
+    };
 
     nix = {
         settings = {
