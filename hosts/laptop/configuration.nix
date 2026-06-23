@@ -33,6 +33,16 @@ in
             enable = true;
             powerOnBoot = true;
         };
+        graphics = {
+            enable = true;
+            extraPackages = with pkgs; [
+                intel-media-driver
+                intel-compute-runtime
+                vaapiIntel
+                vaapiVdpau
+                libvdpau-va-gl
+            ];
+        };
     };
 
     networking = {
@@ -129,6 +139,7 @@ in
             CLUTTER_BACKEND = "wayland";
             XDG_SESSION_TYPE = "wayland";
             XDG_CURRENT_DESKTOP = "Hyprland";
+            LIBVA_DRIVER_NAME = "iHD";
         };
     };
 
