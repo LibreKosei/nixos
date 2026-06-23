@@ -25,6 +25,19 @@ in
         zoxide
         starship
         stow
+        inputs.concord.packages.${system}.default
+        brightnessctl
+        killall
+        htop
+        libnotify
+        fyi
+        git
+    ];
+
+    workflow = with pkgs; [
+        chezmoi
+        git
+        stow
     ];
 
     browsers = with pkgs; [
@@ -42,6 +55,14 @@ in
         obsidian
         signal-desktop
         libreoffice
+        (prismlauncher.override {
+            additionalPrograms = [ ffmpeg ];
+            additionalLibs = [ glfw-wayland-minecraft ];
+            jdks = [
+                jdk21
+                jdk17
+            ];
+         })
     ];
 
     qtPackages = with pkgs.kdePackages; [

@@ -116,6 +116,7 @@ in
                     qtPackages 
                     misc
                     network
+                    workflow
                 ]);
             };
         };
