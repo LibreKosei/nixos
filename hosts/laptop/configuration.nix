@@ -140,6 +140,7 @@ in
             XDG_SESSION_TYPE = "wayland";
             XDG_CURRENT_DESKTOP = "Hyprland";
             LIBVA_DRIVER_NAME = "iHD";
+            GAME_NATIVE_GLFW = "1";
         };
     };
 
