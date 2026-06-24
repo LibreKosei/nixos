@@ -38,8 +38,8 @@ in
             extraPackages = with pkgs; [
                 intel-media-driver
                 intel-compute-runtime
-                vaapiIntel
-                vaapiVdpau
+                intel-vaapi-driver 
+                libva-vdpau-driver
                 libvdpau-va-gl
             ];
         };
@@ -142,6 +142,8 @@ in
             XDG_CURRENT_DESKTOP = "Hyprland";
             LIBVA_DRIVER_NAME = "iHD";
             GAME_NATIVE_GLFW = "1";
+            XCURSOR_THEME = "Bibata-Modern-Amber";
+            XCURSOR_SIZE = "24";
         };
     };
 

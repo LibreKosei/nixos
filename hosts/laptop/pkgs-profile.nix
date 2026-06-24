@@ -10,7 +10,7 @@ in
 
     audio = with pkgs; [
         pavucontrol
-        helvum
+        crosspipe
     ];
 
     shell = with pkgs; [
@@ -19,25 +19,23 @@ in
         zsh-autosuggestions
         zsh-syntax-highlighting
         eza
-        lazygit
         yazi
         fzf
         zoxide
         starship
-        stow
-        inputs.concord.packages.${system}.default
+        # inputs.concord.packages.${system}.default
         brightnessctl
         killall
         htop
         libnotify
         fyi
-        git
     ];
 
     workflow = with pkgs; [
         chezmoi
         git
         stow
+        lazygit
     ];
 
     browsers = with pkgs; [
@@ -57,7 +55,7 @@ in
         libreoffice
         (prismlauncher.override {
             additionalPrograms = [ ffmpeg ];
-            additionalLibs = [ glfw-wayland-minecraft ];
+            additionalLibs = [ glfw3-minecraft ];
             jdks = [
                 jdk21
                 jdk17
