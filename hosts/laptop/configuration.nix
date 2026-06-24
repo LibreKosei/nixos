@@ -104,7 +104,7 @@ in
         users = {
             kosei = {
                 isNormalUser = true;
-                extraGroups = [ "wheel" "libvirtd" "networkmanager" ];
+                extraGroups = [ "wheel" "networkmanager" ];
                 shell = pkgs.zsh;
                 packages = builtins.concatLists (with pkg-groups; [
                     bluetooth
@@ -200,5 +200,4 @@ in
             ];
         };
     };
-    
 }
