@@ -39,5 +39,9 @@
             keyMode = "vi";
             shortcut = "a";
         };
+
+        direnv = {
+            enable = true;
+        };
     };
 }
