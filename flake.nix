@@ -26,7 +26,7 @@
         };
     };
 
-    outputs = { self, nixpkgs, ... }@inputs: 
+    outputs = { self, nixpkgs, hyprland, ... }@inputs: 
     let
         system = "x86_64-linux";
         lib = nixpkgs.lib;
@@ -36,6 +36,7 @@
             inherit system;
             specialArgs = { inherit inputs; };
             modules = [
+                hyprland.nixosModules.default
                 ./hosts/laptop/configuration.nix                
                 ./modules/default.nix
             ];

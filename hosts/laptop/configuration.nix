@@ -11,6 +11,8 @@ in
     };
 
     # Built-in Module
+    system.stateVersion = "24.11";
+
     imports = [ 
         ./hardware-configuration.nix 
         ./programs.nix
@@ -125,7 +127,16 @@ in
 
     xdg.portal = {
         enable = true;
-        extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+        extraPortals = with pkgs; [ 
+            xdg-desktop-portal-gtk
+        ];
+        config = {
+            hyprland = {
+                default = [ "hyprland" "gtk" ];
+                "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+                "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+            };
+        };
     };
 
     nixpkgs.config.allowUnfree = true;
