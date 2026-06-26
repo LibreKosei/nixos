@@ -117,6 +117,7 @@ in
                     misc
                     network
                     workflow
+                    icons
                 ]);
             };
         };

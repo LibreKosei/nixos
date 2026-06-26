@@ -36,6 +36,7 @@ in
         git
         stow
         lazygit
+        gnumake
     ];
 
     browsers = with pkgs; [
@@ -53,6 +54,8 @@ in
         obsidian
         signal-desktop
         libreoffice
+	      kitty
+	      foot
         (prismlauncher.override {
             additionalPrograms = [ ffmpeg ];
             additionalLibs = [ glfw3-minecraft ];
@@ -80,5 +83,10 @@ in
     network = with pkgs; [
         tailscale
         trayscale
+    ];
+
+    icons = with pkgs; [
+        papirus-icon-theme
+        adwaita-icon-theme
     ];
 }
