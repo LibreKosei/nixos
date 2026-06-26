@@ -143,7 +143,16 @@ in
     nixpkgs.config.allowUnfree = true;
 
     environment = {
-        pathsToLink = [ "/share/zsh" ];
+        systemPackages = with pkg-groups; [
+            shell
+        ];
+        pathsToLink = [ 
+            "/share/zsh"
+            "/share/fzf-tab"
+            "/share/zsh-suggestions"
+            "/share/zsh-syntax-highlighting"
+            "/share/fzf"
+        ];
         sessionVariables = {
             NIXOS_OZONE_WL = "1";
             QT_QPA_PLATFORM = "wayland;xcb";
