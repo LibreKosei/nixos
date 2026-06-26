@@ -120,6 +120,7 @@ in
                     network
                     workflow
                     icons
+                    wayland
                 ]);
             };
         };

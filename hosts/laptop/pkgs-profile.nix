@@ -89,4 +89,9 @@ in
         papirus-icon-theme
         adwaita-icon-theme
     ];
+
+    wayland = with pkgs; [
+        wl-clipboard
+        hyprshot
+    ];
 }
