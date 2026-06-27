@@ -23,7 +23,7 @@ in
         fzf
         zoxide
         starship
-        # inputs.concord.packages.${system}.default
+        inputs.concord.packages.${system}.default
         brightnessctl
         killall
         htop
@@ -38,6 +38,7 @@ in
         lazygit
         gnumake
         dotbot
+        inputs.herdr.packages.${system}.default
     ];
 
     browsers = with pkgs; [

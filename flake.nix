@@ -24,6 +24,8 @@
             url = "github:mangowm/mango";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        herdr.url = "github:ogulcancelik/herdr/v0.7.1";
     };
 
     outputs = { self, nixpkgs, hyprland, ... }@inputs: 
