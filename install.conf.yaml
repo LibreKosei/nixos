@@ -12,3 +12,4 @@
     ~/.config/starship.toml:          config/starship/starship.toml
     ~/.config/tmux/tmux.conf:         config/tmux/tmux.conf
     ~/.zshrc:                         config/zsh/.zshrc
+    ~/.config/herdr/config.toml:      config/herdr/config.toml
