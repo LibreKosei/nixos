@@ -37,6 +37,7 @@ in
         stow
         lazygit
         gnumake
+        dotbot
     ];
 
     browsers = with pkgs; [
