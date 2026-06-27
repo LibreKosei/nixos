@@ -1,16 +1,18 @@
-source /run/current-system/sw/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
-source /run/current-system/sw/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /run/current-system/sw/share/fzf-tab/fzf-tab.plugin.zsh 
-
 function source_if_exists() {
     [[ -f "$1" ]] && source "$1"
 }
 
-ZSHAREDIR="$HOME/.nix-profile/share"
+ZSHAREDIR="/etc/profiles/per-user/kosei/share"
+
+autoload -Uz compinit
+compinit
+
+source_if_exists "$ZSHAREDIR/fzf-tab/fzf-tab.plugin.zsh"
+
 
 source_if_exists "$ZSHAREDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source_if_exists "$ZSHAREDIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source_if_exists "$ZSHAREDIR/fzf-tab/fzf-tab.plugin.zsh"
+
 
 setopt autocd
 
@@ -28,7 +30,8 @@ eval "$(direnv hook zsh)"
 
 # fzf 
 source_if_exists "$ZSHAREDIR/fzf/shell/key-bindings.zsh"
-eval "$(fzf --zsh)"
+source_if_exists "$ZSHAREDIR/fzf/shell/completion.zsh"
+# eval "$(fzf --zsh)"
 
 # zoxide
 eval "$(zoxide init zsh)"
