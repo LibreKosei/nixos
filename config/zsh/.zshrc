@@ -2,6 +2,16 @@ source /run/current-system/sw/share/zsh-syntax-highlighting/zsh-syntax-highlight
 source /run/current-system/sw/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /run/current-system/sw/share/fzf-tab/fzf-tab.plugin.zsh 
 
+function source_if_exists() {
+    [[ -f "$1" ]] && source "$1"
+}
+
+ZSHAREDIR="$HOME/.nix-profile/share"
+
+source_if_exists "$ZSHAREDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source_if_exists "$ZSHAREDIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source_if_exists "$ZSHAREDIR/fzf-tab/fzf-tab.plugin.zsh"
+
 setopt autocd
 
 bindkey -e 
@@ -17,7 +27,7 @@ alias mcRestart="sudo systemctl restart minecraft-server-fabricLatest"
 eval "$(direnv hook zsh)"
 
 # fzf 
-source /run/current-system/sw/share/fzf/shell/key-bindings.zsh 
+source_if_exists "$ZSHAREDIR/fzf/shell/key-bindings.zsh"
 eval "$(fzf --zsh)"
 
 # zoxide

@@ -143,9 +143,9 @@ in
     nixpkgs.config.allowUnfree = true;
 
     environment = {
-        systemPackages = with pkg-groups; [
+        systemPackages = builtins.concatLists (with pkg-groups; [
             shell
-        ];
+        ]);
         pathsToLink = [ 
             "/share/zsh"
             "/share/fzf-tab"
