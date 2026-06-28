@@ -140,7 +140,6 @@ in
                 "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
             };
             niri = {
-                default = [ "gtk" ];
                 "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
             };
         };
