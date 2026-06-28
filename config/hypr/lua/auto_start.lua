@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function ()
+    hl.exec_cmd("fcitx5 &")
+    hl.exec_cmd("hypridle &")
+    hl.exec_cmd("otd-daemon &")
+    hl.exec_cmd("qs -n -d")
+end)

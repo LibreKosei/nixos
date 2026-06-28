@@ -14,3 +14,4 @@
     ~/.zshrc:                         config/zsh/.zshrc
     ~/.config/herdr/config.toml:      config/herdr/config.toml
     ~/.config/niri:                   config/niri
+    ~/.config/hypr:                   config/hypr

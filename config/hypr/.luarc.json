@@ -1,0 +1,10 @@
+{
+    "workspace": {
+        "library": [
+            "/home/kosei/nixos/config/hypr"
+        ]
+    },
+    "diagnostics": {
+        "globals": ["hl"]
+    }
+}
