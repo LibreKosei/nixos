@@ -33,6 +33,10 @@
 
         hyprlock.enable = true;
 
+        niri = {
+            enable = true;
+        };
+
         tmux = {
             enable = true;
             baseIndex = 1;

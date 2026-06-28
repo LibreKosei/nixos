@@ -131,12 +131,17 @@ in
         enable = true;
         extraPortals = with pkgs; [ 
             xdg-desktop-portal-gtk
+            xdg-desktop-portal-gnome
         ];
         config = {
             hyprland = {
                 default = [ "hyprland" "gtk" ];
                 "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
                 "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+            };
+            niri = {
+                default = [ "gtk" ];
+                "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
             };
         };
     };

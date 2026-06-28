@@ -99,5 +99,6 @@ in
     wayland = with pkgs; [
         wl-clipboard
         hyprshot
+        xwayland-satellite
     ];
 }
