@@ -62,6 +62,7 @@ in
             additionalPrograms = [ ffmpeg ];
             additionalLibs = [ glfw3-minecraft ];
             jdks = [
+                jdk25 
                 jdk21
                 jdk17
             ];
