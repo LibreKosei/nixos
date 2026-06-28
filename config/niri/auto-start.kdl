@@ -1,0 +1,3 @@
+spawn-at-startup "fcitx5" "-d"
+spawn-at-startup "otd-daemon"
+spawn-sh-at-startup "qs -n -d"
