@@ -92,6 +92,10 @@ in
         adwaita-icon-theme
     ];
 
+    cursor = with pkgs; [
+        bibata-cursors
+    ];
+
     wayland = with pkgs; [
         wl-clipboard
         hyprshot
