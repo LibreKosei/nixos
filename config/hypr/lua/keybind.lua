@@ -8,6 +8,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local terminal = "kitty"
 local fileManager = "dolphin"
 local menu = "qs ipc call launcher-panel toggle"
+local browser = "uwsm app -- firefox"
 
 --@type BindEntry[]
 local binds = {
@@ -33,6 +34,12 @@ local binds = {
         dispatcher = hl.dsp.exec_cmd("hyprshot -m region"),
         opts = { description = "Take screenshot (select region)" },
     },
+    {
+        key = mainMod .. " + B",
+        dispatcher = hl.dsp.exec_cmd(browser),
+        opts = { description = "Launch browser" },
+    },
+
 }
 
 --@type BindEntry[]
