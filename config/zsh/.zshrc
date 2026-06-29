@@ -49,4 +49,6 @@ function y() {
 eval "$(starship init zsh)"
 
 # SSH Agent
-eval "$(ssh-agent -s)"
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -h)" > /dev/null
+fi
