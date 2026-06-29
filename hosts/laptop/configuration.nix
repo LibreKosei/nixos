@@ -98,6 +98,7 @@ in
     powerManagement.enable = true;
 
     security = {
+        rtkit.enable = true;
         polkit.enable = true;
         pam.services.login.enableGnomeKeyring = true;
     };
@@ -131,16 +132,15 @@ in
         enable = true;
         extraPortals = with pkgs; [ 
             xdg-desktop-portal-gtk
-            xdg-desktop-portal-gnome
         ];
         config = {
+            common = {
+                default = [ "hyprland" "gtk" ];
+            };
             hyprland = {
                 default = [ "hyprland" "gtk" ];
                 "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
                 "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
-            };
-            niri = {
-                "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
             };
         };
     };
@@ -171,6 +171,17 @@ in
             GAME_NATIVE_GLFW = "1";
             XCURSOR_THEME = "Bibata-Modern-Amber";
             XCURSOR_SIZE = "24";
+        };
+        etc = {
+            "xdg-desktop-portal/hyprland-portals.conf" = {
+                text = ''
+                [preferred]
+                default=hyprland;gtk
+                org.freedesktop.impl.portal.ScreenCast=hyprland
+                org.freedesktop.impl.portal.Screenshot=hyprland
+                org.freedesktop.impl.portal.RemoteDesktop=hyprland
+                '';
+            };
         };
     };
 
