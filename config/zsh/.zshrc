@@ -47,3 +47,6 @@ function y() {
 }
 
 eval "$(starship init zsh)"
+
+# SSH Agent
+eval "$(ssh-agent -s)"
