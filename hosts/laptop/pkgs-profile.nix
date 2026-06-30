@@ -80,6 +80,7 @@ in
             pkgs.kdePackages.kirigami
             pkgs.kdePackages.qtmultimedia
             pkgs.kdePackages.qt5compat
+            pkgs.kdePackages.qtimageformats
         ])
     ];
 
