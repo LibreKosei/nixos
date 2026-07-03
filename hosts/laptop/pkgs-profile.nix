@@ -67,6 +67,7 @@ in
                 jdk17
             ];
          })
+        inputs.icon-browser.packages.${system}.default
     ];
 
     qtPackages = with pkgs.kdePackages; [

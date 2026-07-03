@@ -26,6 +26,7 @@
         };
 
         herdr.url = "github:ogulcancelik/herdr/v0.7.1";
+        icon-browser.url = "github:Aylur/icon-browser";
     };
 
     outputs = { self, nixpkgs, hyprland, ... }@inputs: 
