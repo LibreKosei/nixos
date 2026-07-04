@@ -50,5 +50,5 @@ eval "$(starship init zsh)"
 
 # SSH Agent
 if [ -z "$SSH_AUTH_SOCK" ]; then
-    eval "$(ssh-agent -h)" > /dev/null
+    eval "$(ssh-agent -s)" > /dev/null
 fi
