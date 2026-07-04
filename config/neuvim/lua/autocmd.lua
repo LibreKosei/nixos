@@ -1,0 +1,6 @@
+-- vim.api.nvim_create_autocmd('FileType', {
+--     pattern = { 'TelescopePrompt', 'TelescopeResults', 'NvimTree' },
+--     callback = function (args)
+--         require('colorizer').detach_from_buffer(args.buf)
+--     end
+-- })
