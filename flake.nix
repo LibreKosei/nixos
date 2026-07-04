@@ -8,7 +8,6 @@
 
         kvim = { 
             url = "github:LibreKosei/kvim"; 
-            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         quickshell = {
