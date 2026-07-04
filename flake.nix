@@ -27,6 +27,17 @@
 
         herdr.url = "github:ogulcancelik/herdr/v0.7.1";
         icon-browser.url = "github:Aylur/icon-browser";
+        
+        nix4nvchad = {
+            url = "github:nix-community/nix4nvchad";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.nvchad-starter.follows = "nvchad-starter";
+        };
+
+        nvchad-starter = {
+            url = "github:LibreKosei/nvchad";
+            flake = false;
+        };
     };
 
     outputs = { self, nixpkgs, hyprland, ... }@inputs: 
@@ -35,6 +46,7 @@
         lib = nixpkgs.lib;
     in
     {
+        overlays.default = import ./overlays inputs;
         nixosConfigurations.nixos = lib.nixosSystem {
             inherit system;
             specialArgs = { inherit inputs; };
@@ -42,6 +54,7 @@
                 hyprland.nixosModules.default
                 ./hosts/laptop/configuration.nix                
                 ./modules/default.nix
+                { nixpkgs.overlays = [ (import ./overlays inputs) ]; }
             ];
         };
     };

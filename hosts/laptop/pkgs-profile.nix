@@ -49,6 +49,7 @@ in
 
     editors = with pkgs; [
         inputs.kvim.packages.${system}.default
+        nvchad
     ];
 
     desktop = with pkgs; [
