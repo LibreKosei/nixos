@@ -539,11 +539,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1783153723,
-        "narHash": "sha256-KYvdx0NspGeIn8TVGw2nAdb01X50/PJBHb+RA0mZyiw=",
+        "lastModified": 1783258473,
+        "narHash": "sha256-yxRaCOJw5l0L77Z62BGgjGouBy7Gk45gi+AuaxinHug=",
         "owner": "LibreKosei",
         "repo": "kvim",
-        "rev": "d5c4d14c6ddb5e6243cb6dc4f8530ef427e662f6",
+        "rev": "fd2f3aae0cdc187fd50be74f6d3b681ee89b62df",
         "type": "github"
       },
       "original": {
