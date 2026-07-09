@@ -37,6 +37,11 @@
             url = "github:LibreKosei/nvchad";
             flake = false;
         };
+        
+        pebble-icon-theme = {
+            url = "github:fleugle/Pebble-Icon-Theme-flake";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, hyprland, ... }@inputs: 

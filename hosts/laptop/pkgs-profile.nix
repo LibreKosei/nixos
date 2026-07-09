@@ -95,6 +95,7 @@ in
     icons = with pkgs; [
         papirus-icon-theme
         adwaita-icon-theme
+        inputs.pebble-icon-theme.packages.${system}.all
     ];
 
     cursor = with pkgs; [

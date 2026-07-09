@@ -761,6 +761,26 @@
         "type": "github"
       }
     },
+    "pebble-icon-theme": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780477500,
+        "narHash": "sha256-IzQ7DS3sJoRNAVLQdOSlJ54/e52moWgOKrF2StvoHYw=",
+        "owner": "fleugle",
+        "repo": "Pebble-Icon-Theme-flake",
+        "rev": "916d04dd295fee3ac0849295e81de8d88ead876f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fleugle",
+        "repo": "Pebble-Icon-Theme-flake",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -816,6 +836,7 @@
         "nix4nvchad": "nix4nvchad",
         "nixpkgs": "nixpkgs_7",
         "nvchad-starter": "nvchad-starter",
+        "pebble-icon-theme": "pebble-icon-theme",
         "quickshell": "quickshell"
       }
     },
