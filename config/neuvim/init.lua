@@ -34,6 +34,7 @@ require('lsp.cssls')
 require('lsp.ts_ls')
 require('lsp.hls')
 require('lsp.latex')
+require('lsp.svelte')
 
 --- Lua
 vim.cmd.colorscheme("pasteldark")
