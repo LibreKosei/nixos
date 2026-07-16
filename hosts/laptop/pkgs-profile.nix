@@ -60,6 +60,7 @@ in
         libreoffice
 	      kitty
 	      foot
+        kdePackages.kdenlive
         (prismlauncher.override {
             additionalPrograms = [ ffmpeg ];
             additionalLibs = [ glfw3-minecraft ];
