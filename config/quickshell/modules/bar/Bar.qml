@@ -24,19 +24,21 @@ PanelWindow {
     FlexboxLayout {
         id: flexLayout
 
+        direction: FlexboxLayout.Row
+        justifyContent: FlexboxLayout.JustifySpaceEvenly
+
         anchors {
+            fill: parent
             top: parent.top
             bottom: parent.bottom
             topMargin: bar.extraHeight / 2
             bottomMargin: bar.extraHeight / 2
         }
 
-        IconButton {
+        Group {
             id: example
-            paddingSize: 12
+            padding: 12
             iconSize: 24
-            borderSize: 1.5
-            borderColor: "transparent"
             iconColor: "#DADADA"
             iconName: "network-wireless-signal-good-symbolic"
         }
