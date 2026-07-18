@@ -8,10 +8,9 @@ PanelWindow {
     // qmllint enable
     id: bar
 
-    property real extraHeight: 20
     implicitWidth: screen.width
-    implicitHeight: flexLayout.implicitHeight + extraHeight
-    color: "#141b1e"
+    implicitHeight: 60
+    color: "transparent"
 
     anchors {
         left: true
@@ -26,13 +25,11 @@ PanelWindow {
 
         direction: FlexboxLayout.Row
         justifyContent: FlexboxLayout.JustifySpaceEvenly
+        alignItems: FlexboxLayout.AlignCenter
+        alignContent: FlexboxLayout.AlignCenter
 
         anchors {
             fill: parent
-            top: parent.top
-            bottom: parent.bottom
-            topMargin: bar.extraHeight / 2
-            bottomMargin: bar.extraHeight / 2
         }
 
         Group {
