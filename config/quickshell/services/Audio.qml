@@ -9,14 +9,14 @@ Singleton {
 
     property PwNode sink: Pipewire.defaultAudioSink
     property real maxVol: 150
-    readonly property real dsVol: Math.min(Math.floor(sink.audio.volume * 100), maxVol)
+    readonly property real dsVol: Math.min(Math.floor(sink?.audio.volume * 100), maxVol)
 
     PwObjectTracker {
         objects: [sink, Pipewire.defaultAudioSource]
     }
 
     function getIconName(node: PwNode): string {
-        if (!node.ready || node.audio == null || node.audio.muted) { return "audio-volume-muted-symbolic" }
+        if (!node?.ready || node?.audio == null || node?.audio.muted) { return "audio-volume-muted-symbolic" }
         const vol = node.audio.volume * 100
         if (100 <= vol) {
             return "audio-volume-overamplified-symbolic"
