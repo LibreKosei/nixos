@@ -5,7 +5,7 @@ Item {
 
     property real pixelSize: 14
     property string fontFamily: "JetBrainsMono Nerd Font"
-    property string reservedChars
+    property string reservedChars: "W"
     property string text
     property alias tm: tm
 
@@ -31,6 +31,7 @@ Item {
         text: root.text
         color: "#DADADA"
         horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
         width: tm.width
     }
 }
