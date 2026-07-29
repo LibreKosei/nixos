@@ -33,7 +33,7 @@
         hyprlock.enable = true;
 
         niri = {
-            enable = true;
+            enable = false;
         };
 
         tmux = {

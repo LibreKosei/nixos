@@ -86,6 +86,7 @@ in
             pkgs.kdePackages.qt5compat
             pkgs.kdePackages.qtimageformats
         ])
+        libdisplay-info
     ];
 
     network = with pkgs; [
