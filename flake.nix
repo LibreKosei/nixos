@@ -2,9 +2,9 @@
     description = "A very basic NixOS configuration";
 
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-        hyprland.url = "github:hyprwm/Hyprland/v0.55.0";
+        hyprland.url = "github:hyprwm/Hyprland/v0.56.0";
 
         kvim = { 
             url = "github:LibreKosei/kvim"; 
