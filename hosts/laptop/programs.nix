@@ -33,7 +33,8 @@
         hyprlock.enable = true;
 
         niri = {
-            enable = false;
+            enable = true;
+            package = pkgs.niri-unstable;
         };
 
         tmux = {

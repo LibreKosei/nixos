@@ -17,14 +17,11 @@
 
         nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
-        concord.url = "github:chojs23/concord";
-
         mangowm = {
             url = "github:mangowm/mango";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        herdr.url = "github:ogulcancelik/herdr/v0.7.1";
         icon-browser.url = "github:Aylur/icon-browser";
         
         nix4nvchad = {
@@ -42,9 +39,14 @@
             url = "github:fleugle/Pebble-Icon-Theme-flake";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        niri = {
+            url = "github:sodiboo/niri-flake";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { self, nixpkgs, hyprland, ... }@inputs: 
+    outputs = { self, nixpkgs, hyprland, niri, ... }@inputs: 
     let
         system = "x86_64-linux";
         lib = nixpkgs.lib;
@@ -56,9 +58,10 @@
             specialArgs = { inherit inputs; };
             modules = [
                 hyprland.nixosModules.default
+                niri.nixosModules.niri
                 ./hosts/laptop/configuration.nix                
                 ./modules/default.nix
-                { nixpkgs.overlays = [ (import ./overlays inputs) ]; }
+                { nixpkgs.overlays = [ (import ./overlays inputs) niri.overlays.niri ]; }
             ];
         };
     };

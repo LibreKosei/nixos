@@ -23,7 +23,6 @@ in
         fzf
         zoxide
         starship
-        inputs.concord.packages.${system}.default
         brightnessctl
         killall
         htop
@@ -38,13 +37,11 @@ in
         lazygit
         gnumake
         dotbot
-        inputs.herdr.packages.${system}.default
     ];
 
     browsers = with pkgs; [
         firefox
         ungoogled-chromium
-        brave
     ];
 
     editors = with pkgs; [
@@ -71,6 +68,7 @@ in
             ];
          })
         inputs.icon-browser.packages.${system}.default
+        nautilus
     ];
 
     qtPackages = with pkgs.kdePackages; [
@@ -87,6 +85,7 @@ in
             pkgs.kdePackages.qtimageformats
         ])
         libdisplay-info
+        cachix
     ];
 
     network = with pkgs; [
@@ -107,6 +106,6 @@ in
     wayland = with pkgs; [
         wl-clipboard
         hyprshot
-        xwayland-satellite
+        # xwayland-satellite
     ];
 }

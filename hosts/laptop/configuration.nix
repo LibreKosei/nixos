@@ -93,6 +93,8 @@ in
         tailscale.enable = true;
 
         hypridle.enable = true;
+
+        dbus.packages = [ pkgs.nautilus ];
     };
 
     powerManagement.enable = true;
@@ -128,22 +130,22 @@ in
         };
     };
 
-    xdg.portal = {
-        enable = true;
-        extraPortals = with pkgs; [ 
-            xdg-desktop-portal-gtk
-        ];
-        config = {
-            common = {
-                default = [ "hyprland" "gtk" ];
-            };
-            hyprland = {
-                default = [ "hyprland" "gtk" ];
-                "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
-                "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
-            };
-        };
-    };
+    # xdg.portal = {
+    #     enable = true;
+    #     extraPortals = with pkgs; [ 
+    #         xdg-desktop-portal-gtk
+    #     ];
+    #     config = {
+    #         common = {
+    #             default = [ "hyprland" "gtk" ];
+    #         };
+    #         hyprland = {
+    #             default = [ "hyprland" "gtk" ];
+    #             "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+    #             "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+    #         };
+    #     };
+    # };
 
     nixpkgs.config.allowUnfree = true;
 
