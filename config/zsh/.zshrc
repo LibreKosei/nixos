@@ -21,7 +21,7 @@ bindkey -e
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 alias ..="cd .."
-alias ls="eza -1 --icons"
+alias ls="eza -1 --icons auto"
 alias mcStat="sudo systemctl status minecraft-server-fabricLatest"
 alias mcRestart="sudo systemctl restart minecraft-server-fabricLatest"
 
