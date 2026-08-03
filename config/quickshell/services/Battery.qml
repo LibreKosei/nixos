@@ -22,13 +22,24 @@ Singleton {
           return prefix + status + suffix
       }
 
-      switch (mainBattery?.state) {
-          case UPowerDevice.Discharging: 
-              return put(`${Math.floor(mbHealth / 10)}`)
-          case UPowerDevice.Charging:
-              return put(`${Math.floor(mbHealth / 10)}-charging`)
-          case UPowerDevice.PendingCharge:
-              return put(`${Math.floor(mbHealth / 10)}-plugged`)
+      function roundDownStringWay(num) {
+          const str = num.toString();
+          // Keep the first character, pad the rest of the length with '0'
+          const roundedStr = str[0].padEnd(str.length, '0');
+          return roundedStr;
+      }
+
+      switch (root.mainBattery?.state) {
+          case UPowerDeviceState.Discharging: 
+              // console.log("[Battery] discharging")
+              return put(roundDownStringWay(mbHealth))
+          case UPowerDeviceState.Charging:
+              // console.log("[Battery] charging")
+              if (mbHealth >= 99) return put("100-charged")
+              return put(`${roundDownStringWay(mbHealth)}-charging`)
+          case UPowerDeviceState.PendingCharge:
+              // console.log("[Battery] pending")
+              return put(`${roundDownStringWay(mbHealth)}-plugged-in`)
           default:
               return "battery-missing-symbolic"
       }
