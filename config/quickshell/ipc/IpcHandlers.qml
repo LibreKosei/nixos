@@ -1,0 +1,34 @@
+import Quickshell
+import Quickshell.Io
+import qs.services
+import qs.settings
+
+Scope {
+    id: root
+
+    readonly property string shell: "shell"
+    readonly property string locker: "locker"
+    readonly property string brightness: "brightness"
+    readonly property string idle: "idle"
+
+    IpcHandler {
+        target: root.shell
+        function toggleLauncher() { Config.persistent.showLauncher = !(Config.persistent.showLauncher) }
+    }
+
+    IpcHandler {
+        target: root.locker
+        function lock() { Idle.lock() }
+    }
+
+    IpcHandler {
+        target: root.brightness
+        function increase(percent: int) { Brightness.increase(percent) }
+        function decrease(percent: int) { Brightness.decrease(percent) }
+    }
+
+    IpcHandler {
+        target: root.idle
+        function status() { console.log("[Idle Daemon] active: ", Idle.active) }
+    }
+}
