@@ -2,6 +2,7 @@ import Quickshell
 import Quickshell.Io
 import qs.services
 import qs.settings
+import qs.utils.matugen
 
 Scope {
     id: root
@@ -10,6 +11,7 @@ Scope {
     readonly property string locker: "locker"
     readonly property string brightness: "brightness"
     readonly property string idle: "idle"
+    readonly property string util: "util"
 
     IpcHandler {
         target: root.shell
@@ -30,5 +32,10 @@ Scope {
     IpcHandler {
         target: root.idle
         function status() { console.log("[Idle Daemon] active: ", Idle.active) }
+    }
+
+    IpcHandler {
+        target: root.util
+        function generate(image: string, mode: string) { Matugen.generate(image, mode) }
     }
 }
