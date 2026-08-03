@@ -56,7 +56,7 @@ Singleton {
 
         // Remove the correct sink
         function onObjectRemovedPost(object, _) {
-            if (!object.isSink) return
+            if (!object?.isSink) return
             for (let i = 0; i < sinks.count; i++) {
                 const sink = sinks.get(i)
                 if (sink === object) {
