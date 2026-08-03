@@ -92,8 +92,6 @@ in
 
         tailscale.enable = true;
 
-        hypridle.enable = true;
-
         dbus.packages = [ pkgs.nautilus ];
     };
 
@@ -204,7 +202,7 @@ in
     };
 
     # time 
-    time.timeZone = "Asia/Kuala_Lumpur";
+    time.timeZone = "Asia/Tokyo";
 
     # font
     fonts = {

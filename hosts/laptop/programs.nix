@@ -30,8 +30,6 @@
             withUWSM = true;
         };
 
-        hyprlock.enable = true;
-
         niri = {
             enable = true;
             package = pkgs.niri-unstable;
