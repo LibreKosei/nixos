@@ -18,7 +18,7 @@ Singleton {
     // Sorts the workspace by `name` in ascending order. This behavior might be unstable
     readonly property list<Windowset> visibleWss: [...WindowManager.windowsets]
       .sort((a, b) => a.name.localeCompare(b.name))
-      .filter((w) => w.shouldDisplay)
+      .filter((w) => w.shouldDisplay && w.name !== "10")
 
     onVisibleWssChanged: () => {
         const wss = root.visibleWss
@@ -35,14 +35,6 @@ Singleton {
             if (workspace === listModel.get(i).workspace) return true
         }
         return false
-    }
-
-    function isGreater(listModel, list) {
-        return list.length < listModel.count
-    }
-
-    function isSmaller(listModel, list) {
-        return listModel.count < list.length
     }
 
     function getRemoved(list) {
