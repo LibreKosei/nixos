@@ -44,6 +44,10 @@
             url = "github:sodiboo/niri-flake";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        matugen = {
+            url = "github:/InioX/Matugen";
+        };
     };
 
     outputs = { self, nixpkgs, hyprland, niri, ... }@inputs: 
