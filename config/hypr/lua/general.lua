@@ -2,8 +2,8 @@ local colors = require("lua.colors")
 
 hl.config({
     general = {
-        gaps_in = 20,
-        gaps_out = 20,
+        gaps_in = 5,
+        gaps_out = 5,
 
         border_size = 2,
 
@@ -17,5 +17,10 @@ hl.config({
         allow_tearing = false,
 
         layout = "scrolling",
+    },
+    misc = {
+        force_default_wallpaper = 0,
+        disable_hyprland_logo = true,
+        disable_splash_rendering = true,
     },
 })

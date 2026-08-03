@@ -7,8 +7,9 @@
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local terminal = "kitty"
 local fileManager = "dolphin"
-local menu = "qs ipc call launcher-panel toggle"
+local menu = "qs -p ~/nixos/config/quickshell ipc call shell toggleLauncher"
 local browser = "uwsm app -- firefox"
+local obs = "uwsm app -- obs"
 
 --@type BindEntry[]
 local binds = {
@@ -39,43 +40,114 @@ local binds = {
         dispatcher = hl.dsp.exec_cmd(browser),
         opts = { description = "Launch browser" },
     },
-
+    {
+        key = mainMod .. " + O",
+        dispatcher = hl.dsp.exec_cmd(obs),
+        opts = { description = "Launch OBS" },
+    },
 }
+
+local function layout_bind(bind_table)
+    return function ()
+        local workspace = hl.get_active_special_workspace() or
+                          hl.get_active_workspace()
+
+        if not workspace then
+            return
+        end
+
+        local layout = workspace.tiled_layout
+                
+        if bind_table[layout] then
+            hl.dispatch(bind_table[layout])
+        end
+    end
+end
 
 --@type BindEntry[]
 local layout_binds = {
     {
         key = mainMod .. " + period",
-        dispatcher = hl.dsp.layout("colresize +conf"),
+        dispatcher = layout_bind({
+            scrolling = (hl.dsp.layout("colresize +conf"))
+        }),
         opts = { description = "Cycle through predefined width", },
     },
     {
         key = mainMod .. " + comma",
-        dispatcher = hl.dsp.layout("colresize -conf"),
+        dispatcher = layout_bind({
+            scrolling = hl.dispatch(hl.dsp.layout("colresize -conf"))
+        }),
         opts = { description = "Cycle through predefined width (backward)", },
     },
+    {
+        key = mainMod .. " + tab",
+        dispatcher = function () 
+                local layouts     = { "scrolling", "master", "monocle" }
+                local workspace   = hl.get_active_workspace()
+                if hl.get_active_special_workspace() then
+                  workspace = hl.get_active_special_workspace()
+                end
+
+                local next_layout = "master"
+
+                if not workspace then
+                    return
+                end
+
+                for i = 1, #layouts do
+                    if layouts[i] == workspace.tiled_layout then
+                        local next_layout_idx = (i % #layouts) + 1
+                        next_layout = layouts[next_layout_idx]
+                        break
+                    end
+                end
+
+                if workspace.special then
+                  hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
+                else
+                  hl.workspace_rule({ workspace = tostring(workspace.id), layout = next_layout })
+                end
+        end,
+    }
 }
 
 --@type BindEntry[]
-local scroll_binds = {
+local general_binds = {
     {
         key = mainMod .. " + H",
-        dispatcher = hl.dsp.layout("focus left"),
+        dispatcher = hl.dsp.focus({ direction = "left" }),
         opts = { description = "Focus left window in scrolling mode", },
     },
     {
         key = mainMod .. " + L",
-        dispatcher = hl.dsp.layout("focus right"),
+        dispatcher = hl.dsp.focus({ direction = "right" }),
+        opts = { description = "Focus right window in scrolling mode", },
+    },
+    {
+        key = mainMod .. " + J",
+        dispatcher = hl.dsp.focus({ direction = "down" }),
+        opts = { description = "Focus right window in scrolling mode", },
+    },
+    {
+        key = mainMod .. " + K",
+        dispatcher = hl.dsp.focus({ direction = "up" }),
         opts = { description = "Focus right window in scrolling mode", },
     },
     {
         key = mainMod .. " + SHIFT + H",
-        dispatcher = hl.dsp.layout("swapcol l"),
+        dispatcher = layout_bind({
+            scrolling = hl.dsp.layout("swapcol l"),
+            master = hl.dsp.layout("swapnext"),
+        }),
         opts = { description = "Swap the current window with left one", },
     },
     {
         key = mainMod .. " + SHIFT + L",
-        dispatcher = hl.dsp.layout("swapcol r"),
+        dispatcher = layout_bind({
+            scrolling = hl.dsp.layout("swapcol r"),
+            master = hl.dsp.layout("swapprev")
+        }),
         opts = { description = "Swap the current window with left one", },
     }
 }
@@ -88,7 +160,7 @@ for _, value in ipairs(layout_binds) do
     hl.bind(value.key, value.dispatcher, value.opts)
 end
 
-for _, value in ipairs(scroll_binds) do
+for _, value in ipairs(general_binds) do
     hl.bind(value.key, value.dispatcher, value.opts)
 end
 
@@ -96,8 +168,8 @@ end
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
