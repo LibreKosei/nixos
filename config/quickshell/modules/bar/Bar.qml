@@ -2,6 +2,13 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Services.Pipewire
+import qs.services
+import qs.modules.common
+import qs.settings
+import qs.modules.bar.start
+import qs.modules.bar.center
+import qs.modules.bar.end
 
 // qmllint disable uncreatable-type
 PanelWindow {
@@ -10,34 +17,36 @@ PanelWindow {
 
     implicitWidth: screen.width
     implicitHeight: 60
-    color: "transparent"
+    color: Qt.alpha("#141B1E", 0.3)
+    WlrLayershell.layer: WlrLayer.Overlay
 
     anchors {
-        left: true
-        right: true
         bottom: true 
     }
 
-    WlrLayershell.layer: WlrLayer.Top
-
-    FlexboxLayout {
-        id: flexLayout
-
-        direction: FlexboxLayout.Row
-        justifyContent: FlexboxLayout.JustifySpaceEvenly
-        alignItems: FlexboxLayout.AlignCenter
-        alignContent: FlexboxLayout.AlignCenter
-
+    Item {
         anchors {
             fill: parent
         }
+        Start {
+            id: leftGroup
+            anchors.left: parent.left
+            anchors.leftMargin: 100
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: center.left // optional, prevents overlap on small screens
+        }
 
-        Group {
-            id: example
-            padding: 12
-            iconSize: 24
-            iconColor: "#DADADA"
-            iconName: "network-wireless-signal-good-symbolic"
+        Center {
+            id: center
+            anchors.centerIn: parent
+        }
+
+        End {
+            id: rightGroup
+
+            anchors.right: parent.right
+            anchors.rightMargin: 100
+            anchors.verticalCenter: parent.verticalCenter
         }
     }
 }
