@@ -1,8 +1,8 @@
-import Quickshell.Widgets
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Effects
 import QtQuick.Layouts
+import qs.settings
 
 Button {
     id: root
@@ -10,7 +10,7 @@ Button {
     // General
     property real radius: 12
     property color bgColor: "#232a2d"
-    property real space: 6
+    property real space: Config.spacing.medium
     default property alias content: layout.data
 
     // Shadow
@@ -20,7 +20,7 @@ Button {
     property real elevation: 0.5
     property real elevationScale: 4
 
-    padding: 6
+    padding: Config.padding.medium
 
     contentItem: Item {
 
@@ -53,5 +53,9 @@ Button {
             radius: root.radius
             color: root.bgColor
         }
+    }
+
+    HoverHandler {
+        cursorShape: Qt.PointingHandCursor
     }
 }
