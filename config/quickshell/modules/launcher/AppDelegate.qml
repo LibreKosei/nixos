@@ -15,7 +15,7 @@ Clickable {
     showShadow: false
     padding: General.padding.large
     onClicked: () => {
-        Apps.launch(entry)
+        Apps.launch(entry, false)
         Config.persistent.showLauncher = false
     }
 

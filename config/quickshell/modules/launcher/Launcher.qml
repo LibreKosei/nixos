@@ -70,7 +70,7 @@ PanelWindow {
                         return
 
                     const entry = Apps.sortedEntries.get(view.currentIndex).entry
-                    Apps.launch(entry)
+                    Apps.launch(entry, false)
                     Config.persistent.showLauncher = false
                 }
             }
