@@ -116,6 +116,7 @@ in
                     browsers
                     editors 
                     desktop
+                    email
                     qtPackages 
                     misc
                     network

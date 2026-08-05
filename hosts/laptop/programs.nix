@@ -22,14 +22,6 @@
         };
         
         # Compositor
-        hyprland = {
-            enable = true;
-            package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-            portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-            xwayland.enable = false;
-            withUWSM = true;
-        };
-
         niri = {
             enable = true;
             package = pkgs.niri-unstable;

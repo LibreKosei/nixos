@@ -48,6 +48,11 @@
         matugen = {
             url = "github:/InioX/Matugen";
         };
+
+        freesmLauncher = {
+            url = "github:FreesmTeam/FreesmLauncher";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, hyprland, niri, ... }@inputs: 

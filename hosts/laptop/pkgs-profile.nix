@@ -31,9 +31,7 @@ in
     ];
 
     workflow = with pkgs; [
-        chezmoi
         git
-        stow
         lazygit
         gnumake
         dotbot
@@ -45,7 +43,6 @@ in
     ];
 
     editors = with pkgs; [
-        inputs.kvim.packages.${system}.default
         inputs.kvim.packages.${system}.neuvim
         nvchad
     ];
@@ -67,8 +64,14 @@ in
                 jdk17
             ];
          })
+        inputs.freesmLauncher.packages.${system}.freesmlauncher
         inputs.icon-browser.packages.${system}.default
         nautilus
+    ];
+
+    email = with pkgs; [
+        thunderbird
+        protonmail-bridge
     ];
 
     qtPackages = with pkgs.kdePackages; [
@@ -107,6 +110,6 @@ in
     wayland = with pkgs; [
         wl-clipboard
         hyprshot
-        # xwayland-satellite
+        xwayland-satellite
     ];
 }

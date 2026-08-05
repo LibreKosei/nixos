@@ -105,6 +105,28 @@
         "type": "github"
       }
     },
+    "freesmLauncher": {
+      "inputs": {
+        "libnbtplusplus": "libnbtplusplus",
+        "nix-filter": "nix-filter",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785698032,
+        "narHash": "sha256-oRyxP9O0R582MXHVxxSLkD+VM8lprxqWqBoFq/1tTAU=",
+        "owner": "FreesmTeam",
+        "repo": "FreesmLauncher",
+        "rev": "32e270139495b453e9d0c0d47b8504a153558062",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FreesmTeam",
+        "repo": "FreesmLauncher",
+        "type": "github"
+      }
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -461,6 +483,22 @@
         "type": "github"
       }
     },
+    "libnbtplusplus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772016279,
+        "narHash": "sha256-7itkptyjoRcXfGLwg1/jxajetZ3a4mDc66+w4X6yW8s=",
+        "owner": "FreesmTeam",
+        "repo": "libnbtplusplus",
+        "rev": "687e43031df0dc641984b4256bcca50d5b3f7de3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FreesmTeam",
+        "repo": "libnbtplusplus",
+        "type": "github"
+      }
+    },
     "mangowm": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -557,6 +595,21 @@
       "original": {
         "owner": "YaLTeR",
         "repo": "niri",
+        "type": "github"
+      }
+    },
+    "nix-filter": {
+      "locked": {
+        "lastModified": 1757882181,
+        "narHash": "sha256-+cCxYIh2UNalTz364p+QYmWHs0P+6wDhiWR4jDIKQIU=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "59c44d1909c72441144b93cf0f054be7fe764de5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
         "type": "github"
       }
     },
@@ -810,6 +863,7 @@
     },
     "root": {
       "inputs": {
+        "freesmLauncher": "freesmLauncher",
         "hyprland": "hyprland",
         "icon-browser": "icon-browser",
         "kvim": "kvim",
