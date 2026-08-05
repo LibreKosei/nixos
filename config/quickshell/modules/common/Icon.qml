@@ -10,7 +10,7 @@ IconImage {
     property bool isSymbolic: iconName.includes("symbolic")
     property color iconColor: "#DADADA"
 
-    source: Quickshell.iconPath(iconName, "image-missing-symbolic")
+    source: Quickshell.iconPath(iconName, "image-missing")
     implicitSize: 24
 
     layer.enabled: true
