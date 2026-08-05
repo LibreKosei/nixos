@@ -16,7 +16,7 @@ Singleton {
     property real lockInterval: 300
 
     function lock() { 
-        console.log("Locking screen...") 
+        // console.log("Locking screen...") 
         Config.persistent.locked = true
     }
 
@@ -25,7 +25,7 @@ Singleton {
     }
 
     onActiveChanged: (state) => {
-        console.log("[Idle Monitor] current state: ", root.active)
+        // console.log("[Idle Monitor] current state: ", root.active)
         if (root.active) {
             Brightness.save()
             dimTimer.start()
@@ -63,5 +63,5 @@ Singleton {
         timeout: 10
     }
 
-    Component.onCompleted: console.log("[Idle daemon] active: ", root.isActive)
+    // Component.onCompleted: console.log("[Idle daemon] active: ", root.isActive)
 }

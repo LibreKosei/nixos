@@ -50,7 +50,7 @@ Singleton {
         for (i; i < wifiDevices.count; i++) {
             const device = wifiDevices.get(i).object
             if (device.connected) {
-                console.log("[Network] A Wifi device found: ", device.name)
+                // console.log("[Network] A Wifi device found: ", device.name)
                 return device
             }
         }
@@ -76,7 +76,7 @@ Singleton {
         for (i; i < wiredDevices.count; i++) {
             const device = wiredDevices.get(i).object
             if (device.connected) {
-                console.log("[Network] A Wired device found: ", device.name)
+                // console.log("[Network] A Wired device found: ", device.name)
                 return device
             }
         }
@@ -110,7 +110,7 @@ Singleton {
         let i = 0, j = 0
         for (i; i < deviceList.length; i++) {
             if (deviceList[i].type === DeviceType.Wifi) {
-                console.log("[Network] A device of wireless type captured") 
+                // console.log("[Network] A device of wireless type captured") 
                 insertObj(deviceList[i], wifiDevices)
 
             } else if (deviceList[i].type === DeviceType.Wired) {
@@ -118,7 +118,7 @@ Singleton {
                 insertObj(deviceList[i], wiredDevices) 
 
             } else {
-                console.log("[Network] A device of unknown type captured")
+                // console.log("[Network] A device of unknown type captured")
             }
         }
     }
