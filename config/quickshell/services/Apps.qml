@@ -42,7 +42,7 @@ Singleton {
         }
 
         const matches = Fuzzy.go(text, targets, {
-            keys: ["name", "genericName", "comment", "keywords"],
+            keys: ["name", "genericName", "keywords"],
             limit: 10,
         }).sort((a, b) => a.obj.name.localeCompare(b.obj.name))
         matches.forEach(m => results.append({ entry: m.obj }))
@@ -97,8 +97,8 @@ Singleton {
         }
     }
 
-    Component.onCompleted: { 
-        console.log("[Desktop Entries] amount: ", root.entries.count) 
-        console.log("[Desktop Entries] sorted apps amount: ", root.sortedEntries.count)
-    }
+    // Component.onCompleted: { 
+    //     console.log("[Desktop Entries] amount: ", root.entries.count) 
+    //     console.log("[Desktop Entries] sorted apps amount: ", root.sortedEntries.count)
+    // }
 }
