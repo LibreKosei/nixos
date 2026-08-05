@@ -3,13 +3,14 @@ import QtQuick.Layouts
 import qs.settings
 import qs.services
 import qs.modules.common
+import qs.config
 
 FlexboxLayout {
     id: root
     
     alignItems: FlexboxLayout.AlignStart
     alignContent: FlexboxLayout.AlignCenter
-    gap: Config.spacing.medium
+    gap: General.spacing.medium
 
     Clickable {
         Icon {

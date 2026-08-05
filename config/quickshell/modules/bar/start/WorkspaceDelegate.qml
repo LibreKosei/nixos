@@ -11,12 +11,9 @@ Clickable {
     required property Windowset ws
     property color txtColor: modelData?.active 
                               ? Config.blue 
-                              : Config.background
+                              : Config.white
 
-    showShadow: modelData?.active
-    bgColor: modelData?.active 
-              ? Config.lighterBackground 
-              : Config.white
+    bgColor: Config.lighterBackground 
     
     contentItem: Item {
         implicitWidth: txt.width
