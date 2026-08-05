@@ -12,6 +12,7 @@ Button {
     property color bgColor: "#232a2d"
     property real space: Config.spacing.medium
     default property alias content: layout.data
+    property var direction: FlexboxLayout.Row
 
     // Shadow
     property bool showShadow: true
@@ -30,7 +31,7 @@ Button {
         FlexboxLayout {
             id: layout
             
-            direction: FlexboxLayout.Row
+            direction: root.direction
             justifyContent: FlexboxLayout.JustifySpaceEvenly
             alignItems: FlexboxLayout.AlignCenter
             gap: space
