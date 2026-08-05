@@ -6,6 +6,7 @@ import qs.modules.bar
 import qs.modules.launcher
 import qs.modules.osd
 import qs.modules.lockscreen
+import qs.modules.background
 import qs.services
 import qs.settings
 import qs.ipc
@@ -29,12 +30,11 @@ ShellRoot {
                 bottom: true
             }
 
-            Image {
-                id: wallpaper
-                asynchronous: false
+            Wallpaper {
+                id: background
+
                 anchors.fill: parent
-                cache: true
-                source: Config.wallpaper.image
+                setWallpaper: true
             }
 
             LazyLoader {
@@ -58,6 +58,4 @@ ShellRoot {
             IpcHandlers {}
         }
     }
-
-    Component.onCompleted: Idle.active
 }
