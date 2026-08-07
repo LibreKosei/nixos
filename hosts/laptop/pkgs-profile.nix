@@ -54,6 +54,7 @@ in
         libreoffice
 	      kitty
 	      foot
+        goofcord
         kdePackages.kdenlive
         (prismlauncher.override {
             additionalPrograms = [ ffmpeg ];
