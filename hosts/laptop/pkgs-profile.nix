@@ -72,7 +72,6 @@ in
 
     email = with pkgs; [
         thunderbird
-        protonmail-bridge
     ];
 
     qtPackages = with pkgs.kdePackages; [
