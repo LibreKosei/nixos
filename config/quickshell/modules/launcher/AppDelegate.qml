@@ -32,7 +32,7 @@ Clickable {
             color: "transparent"
             radius: General.radius.medium
             border.width: root.isCurrent ? 2 : 0
-            border.color: root.isCurrent ? Config.blue : "transparent"
+            border.color: root.isCurrent ? Colors.md3.primary : "transparent"
         }
 
         FlexboxLayout {
@@ -57,12 +57,13 @@ Clickable {
 
                 text: root.entry?.name
                 wrapMode: Text.Wrap
+                font.bold: root.isCurrent
                 Layout.alignment: Qt.AlignHCenter
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignTop
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                color: Colors.md3.on_surface
+                color: root.isCurrent ? Colors.md3.primary : Colors.md3.on_surface
             }
         }
     }

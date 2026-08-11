@@ -1,6 +1,7 @@
 import Quickshell
 import Quickshell.Wayland
 import QtQuick
+import QtQuick.Effects
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.services
@@ -10,21 +11,30 @@ import qs.config
 PanelWindow {
     id: root
 
-    implicitWidth: 800
-    implicitHeight: 800
-    color: "#80000000"
-    BackgroundEffect.blurRegion: Region { item: root.contentItem }
+    implicitWidth: 800 + shadow.offset.x * 2
+    implicitHeight: 800 + shadow.offset.y * 2
+    color: "transparent"
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
-    visible: Config.persistent.showLauncher
+    visible: States.showLauncher
 
     onVisibleChanged: if (visible) searchField.forceActiveFocus()
 
     WlrLayershell.layer: WlrLayer.Overlay
 
+    RectangularShadow {
+        id: shadow
+        visible: true
+        anchors.fill: bg
+        offset.x: 4
+        offset.y: 8
+        radius: bg.radius
+        color: Qt.alpha(Colors.md3.shadow, 0.7)
+    }
     Rectangle {
         id: bg
-        anchors.fill: parent
-        color: "transparent"
+        implicitHeight: 800
+        implicitWidth: 800
+        color: Qt.alpha(Colors.md3.surface, 0.7)
         radius: General.radius.xl
 
         ColumnLayout {
@@ -41,7 +51,7 @@ PanelWindow {
                 Keys.onPressed: (event) => {
                     switch (event.key) {
                     case Qt.Key_Escape:
-                        Config.persistent.showLauncher = false
+                        States.showLauncher = false
                         event.accepted = true
                         break
                     case Qt.Key_Down:
@@ -71,7 +81,7 @@ PanelWindow {
 
                     const entry = Apps.sortedEntries.get(view.currentIndex).entry
                     Apps.launch(entry, false)
-                    Config.persistent.showLauncher = false
+                    States.showLauncher = false
                 }
             }
 
