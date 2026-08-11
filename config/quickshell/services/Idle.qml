@@ -14,6 +14,11 @@ Singleton {
     property real fstInterval: 150
     property real sndInterval: 210
     property real lockInterval: 300
+    property real suspendIntreval: 420
+
+    function init() {
+        console.log("[Idle] started...", active)
+    }
 
     function lock() { 
         // console.log("Locking screen...") 
@@ -31,10 +36,12 @@ Singleton {
             dimTimer.start()
             dimTimer2.start()
             lockTimer.start()
+            suspender.start()
         } else {
             dimTimer.stop()
             dimTimer2.stop()
             lockTimer.stop()
+            suspender.stop()
             Brightness.restore()
         }
     }
@@ -55,6 +62,12 @@ Singleton {
         id: lockTimer
         interval: root.lockInterval * 1000
         onTriggered: if (!Config.persistent.locked) root.lock()
+    }
+
+    Timer {
+        id: suspender
+        interval: root.suspendInterval * 1000
+        onTriggered: Quickshell.execDetached(["systemctl", "suspend"])
     }
 
     IdleMonitor {
