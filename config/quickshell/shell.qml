@@ -7,9 +7,12 @@ import qs.modules.launcher
 import qs.modules.osd
 import qs.modules.lockscreen
 import qs.modules.background
+import qs.modules.notification
+import qs.modules.panel
 import qs.services
 import qs.settings
 import qs.ipc
+import qs.config
 
 ShellRoot {
     id: root
@@ -48,7 +51,7 @@ ShellRoot {
                 Launcher {
                     screen: toplevel.modelData
                 }
-                activeAsync: Config.persistent.showLauncher    
+                activeAsync: States.showLauncher    
             }
 
             VolumeOSD {}
@@ -56,6 +59,22 @@ ShellRoot {
             LockScreen {}
 
             IpcHandlers {}
+
+            NotificationPopup {
+                screen: toplevel.modelData
+            }
+
+            LazyLoader {
+                activeAsync: States.showQS
+                Panel {
+                    screen: toplevel.modelData
+                }
+            }
         }
+    }
+
+    Component.onCompleted: {
+        Idle.init()
+        Notification.dnd = false
     }
 }
