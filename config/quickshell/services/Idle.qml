@@ -14,7 +14,7 @@ Singleton {
     property real fstInterval: 150
     property real sndInterval: 210
     property real lockInterval: 300
-    property real suspendIntreval: 420
+    property real suspendInterval: 420
 
     function init() {
         console.log("[Idle] started...", active)
