@@ -3,6 +3,7 @@ import Quickshell.Io
 import qs.services
 import qs.settings
 import qs.utils.matugen
+import qs.config
 
 Scope {
     id: root
@@ -15,7 +16,7 @@ Scope {
 
     IpcHandler {
         target: root.shell
-        function toggleLauncher() { Config.persistent.showLauncher = !(Config.persistent.showLauncher) }
+        function toggleLauncher() { States.showLauncher = !(States.showLauncher) }
     }
 
     IpcHandler {

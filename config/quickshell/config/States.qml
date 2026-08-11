@@ -3,18 +3,13 @@ pragma Singleton
 import Quickshell
 import QtQuick
 
-Singleton {
-    id: root
+PersistentProperties {
+    id: persistentProps
 
-    property alias props: persistentProps
-        
-    PersistentProperties {
-        id: persistentProps
+    reloadableId: "persistentStates"
 
-        reloadableId: "persistentStates"
-
-        property bool showBar: true
-        property bool showLauncher: false
-        property bool locked: false
-    }
+    property bool showBar: true
+    property bool showLauncher: false
+    property bool locked: false
+    property bool showQS: false
 }
