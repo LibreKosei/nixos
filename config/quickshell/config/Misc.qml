@@ -3,6 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import qs.utils.matugen
 
 Singleton {
     id: root
@@ -22,6 +23,15 @@ Singleton {
 
             property string directory
             property string filename
+
+            onDirectoryChanged: { 
+                Matugen.generate(Quickshell.env("HOME") + directory + filename, "dark") 
+                console.log("Theme changed")
+            }
+            onFilenameChanged: {
+                Matugen.generate(Quickshell.env("HOME") + directory + filename, "dark") 
+                console.log("Theme changed")
+            }
         }
     }
 }
