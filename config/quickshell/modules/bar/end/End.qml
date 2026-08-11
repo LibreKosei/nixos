@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import qs.settings
 import qs.services
 import qs.modules.common
+import qs.modules.bar
 import qs.config
 
 FlexboxLayout {
@@ -12,7 +13,8 @@ FlexboxLayout {
     alignContent: FlexboxLayout.AlignCenter
     gap: General.spacing.medium
 
-    Clickable {
+    Clicker {
+        backgroundColor: Colors.md3.surface_container_high
         Icon {
             id: bluetoothIcon
             iconColor: Bluetooth.anyDeviceConnected ? Config.blue : Config.white
@@ -53,11 +55,4 @@ FlexboxLayout {
         }
     }
 
-    Clickable {
-        Icon {
-            id: powerButton
-            iconName: "system-shutdown-symbolic"
-            iconColor: Config.red
-        }
-    }
 }

@@ -9,6 +9,7 @@ import qs.settings
 import qs.modules.bar.start
 import qs.modules.bar.center
 import qs.modules.bar.end
+import qs.config
 
 // qmllint disable uncreatable-type
 PanelWindow {
@@ -16,8 +17,8 @@ PanelWindow {
     id: bar
 
     implicitWidth: screen.width
-    implicitHeight: 60
-    color: Qt.alpha("#141B1E", 0.3)
+    implicitHeight: 64
+    color: Qt.alpha(Colors.md3.surface_container, 1)
     WlrLayershell.layer: WlrLayer.Overlay
 
     anchors {
@@ -28,12 +29,16 @@ PanelWindow {
         anchors {
             fill: parent
         }
+
         Start {
             id: leftGroup
-            anchors.left: parent.left
-            anchors.leftMargin: 100
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: center.left // optional, prevents overlap on small screens
+
+            anchors {
+                verticalCenter: parent.verticalCenter
+                left: parent.left
+                leftMargin: 100                                      
+                right: center.left 
+            }
         }
 
         Center {
@@ -47,6 +52,18 @@ PanelWindow {
             anchors.right: parent.right
             anchors.rightMargin: 100
             anchors.verticalCenter: parent.verticalCenter
+
+            Clicker {
+                backgroundColor: Colors.md3.error_container
+                Icon {
+                    id: powerButton
+                    iconName: "system-shutdown-symbolic"
+                    iconColor: Colors.md3.on_error_container
+                }
+                TapHandler {
+                    onTapped: States.showQS = !(States.showQS)
+                }
+            }
         }
     }
 }

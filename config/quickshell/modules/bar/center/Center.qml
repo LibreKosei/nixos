@@ -1,5 +1,6 @@
 import qs.settings
 import qs.services
+import qs.config
 import qs.modules.common
 
 Clickable {
@@ -10,6 +11,6 @@ Clickable {
 
     MonoText {
         text: Time.currentTime
-        color: Config.white
+        color: Colors.md3.on_background
     }
 }
