@@ -1,50 +1,66 @@
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls.Fusion
 import Quickshell.Wayland
+import qs.services
+import qs.config
+import qs.modules.common
+import qs.settings
+import qs.modules.bar.end
 
 Rectangle {
 	id: root
 	required property LockContext context
-	readonly property ColorGroup colors: Window.active ? palette.active : palette.inactive
 
-	color: colors.window
+	color: Config.background
 
-	Button {
-		text: "Its not working, let me out"
-		onClicked: context.unlocked();
+	// Clickable {
+	//      bgColor: Config.lighterBackground
+	//      MonoText {
+	//          id: emergencyText
+	//          text: "It ain't working"
+	//          color: Config.white
+	//      }
+	// 	  onClicked: context.unlocked();
+	// }
+
+	MonoText {
+      id: clock
+
+      anchors {
+        horizontalCenter: parent.horizontalCenter
+        top: parent.top
+        topMargin: 100
+      }
+
+      text: Time.currentTime
+      color: Config.white
+      font.bold: true
+      font.pixelSize: 80
 	}
 
-	Label {
-		id: clock
-		property var date: new Date()
+  Item {
+      id: status
 
-		anchors {
-			horizontalCenter: parent.horizontalCenter
-			top: parent.top
-			topMargin: 100
-		}
+      anchors {
+          bottom: parent.bottom
+          horizontalCenter: parent.horizontalCenter
+      }
 
-		// The native font renderer tends to look nicer at large sizes.
-		renderType: Text.NativeRendering
-		font.pointSize: 80
+      implicitHeight: 60
+      implicitWidth: layout.implicitWidth
 
-		// updates the clock every second
-		Timer {
-			running: true
-			repeat: true
-			interval: 1000
+      End {
+          id: layout
 
-			onTriggered: clock.date = new Date();
-		}
-
-		// updated when the date changes
-		text: {
-			const hours = this.date.getHours().toString().padStart(2, '0');
-			const minutes = this.date.getMinutes().toString().padStart(2, '0');
-			return `${hours}:${minutes}`;
-		}
-	}
+          Clickable {
+              Icon {
+                  id: powerButton
+                  iconName: "system-shutdown-symbolic"
+                  iconColor: Config.red
+              }
+          }
+      }
+  }
 
 	ColumnLayout {
 		// Uncommenting this will make the password entry invisible except on the active monitor.
@@ -55,50 +71,39 @@ Rectangle {
 			top: parent.verticalCenter
 		}
 
-		RowLayout {
-			TextField {
-				id: passwordBox
+    TextInput {
+        id: passwordBox
 
-				implicitWidth: 400
-				padding: 10
+        implicitWidth: 400
+        padding: General.padding.large
 
-				focus: true
-				enabled: !root.context.unlockInProgress
-				echoMode: TextInput.Password
-				inputMethodHints: Qt.ImhSensitiveData
+        enabled: !root.context.unlockInProgress
+        echoMode: TextInput.Password
+        inputMethodHints: Qt.ImhSensitiveData
+        bgColor: Config.lighterBackground
+        color: Config.white
 
-				// Update the text in the context when the text in the box changes.
-				onTextChanged: root.context.currentText = this.text;
+        // Update the text in the context when the text in the box changes.
+        onTextChanged: root.context.currentText = this.text;
 
-				// Try to unlock when enter is pressed.
-				onAccepted: root.context.tryUnlock();
+        // Try to unlock when enter is pressed.
+        onAccepted: root.context.tryUnlock();
 
-				// Update the text in the box to match the text in the context.
-				// This makes sure multiple monitors have the same text.
-				Connections {
-					target: root.context
+        // Update the text in the box to match the text in the context.
+        // This makes sure multiple monitors have the same text.
+        Connections {
+            target: root.context
 
-					function onCurrentTextChanged() {
-						passwordBox.text = root.context.currentText;
-					}
-				}
-			}
+            function onCurrentTextChanged() {
+              passwordBox.text = root.context.currentText;
+            }
+        }
+    }
 
-			Button {
-				text: "Unlock"
-				padding: 10
-
-				// don't steal focus from the text box
-				focusPolicy: Qt.NoFocus
-
-				enabled: !root.context.unlockInProgress && root.context.currentText !== "";
-				onClicked: root.context.tryUnlock();
-			}
-		}
-
-		Label {
-			visible: root.context.showFailure
-			text: "Incorrect password"
-		}
+      MonoText {
+          color: Colors.md3.error
+          visible: root.context.showFailure
+          text: "Incorrect password"
+      }
 	}
 }
