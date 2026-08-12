@@ -79,7 +79,7 @@ in
         logind = {
             settings.Login = {
                 HandleLidSwitchDocked = "suspend";
-                HandleLidSwitch = "suspend";
+                HandleLidSwitch = "ignore";
             };
         };
 

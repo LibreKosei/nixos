@@ -6,6 +6,7 @@ include "env.kdl"
 include "auto-start.kdl"
 include "binds.kdl"
 include "window-rule.kdl"
+include "events.kdl"
 
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
