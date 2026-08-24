@@ -12,8 +12,6 @@ Singleton {
     property bool dnd: false
     property string path: Quickshell.shellPath("storage/notifications.json")
     property real idOffset
-    property int revision: 0
-    function bump() { root.revision++ }
 
     property alias notifications: notifications
     property alias popups: popups
@@ -108,7 +106,7 @@ Singleton {
         actionIconsSupported: true
         bodyHyperlinksSupported: true
         imageSupported: true
-        persistenceSupported: true
+        persistenceSupported: false
 
         onNotification: (notification) => {
             notification.tracked = true
@@ -167,10 +165,20 @@ Singleton {
         root.saveDebounce.restart()
     }
 
+    function removePopup(id) {
+        const index = root.indexForId(id, root.popups)
+        if (index !== -1) {
+            const wrapper = root.popups.get(index).wrapper
+            root.popups.remove(index)
+            wrapper.destroy()
+        }
+    }
+
     function discard(id) {
         const notif = server.trackedNotifications.values.find((n) => root.idFor(n) === id)
         if (notif) {
             notif.dismiss()
+            root.remove(notif, root.notifications)
             return
         }
         const index = root.indexForId(id, root.notifications)
@@ -179,8 +187,12 @@ Singleton {
             root.notifications.remove(index)
             wrapper.destroy()
             root.saveDebounce.restart()
-            root.bump()
         }
+    }
+
+    function discardAll() {
+        root.notifications.clear()
+        root.saveDebounce.restart()
     }
 
     function activate(id) {
