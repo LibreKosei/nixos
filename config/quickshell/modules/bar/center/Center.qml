@@ -13,4 +13,6 @@ Clickable {
         text: Time.currentTime
         color: Colors.md3.on_background
     }
+
+    onClicked: States.showNC = !(States.showNC)
 }
