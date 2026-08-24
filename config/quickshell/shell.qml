@@ -9,6 +9,7 @@ import qs.modules.lockscreen
 import qs.modules.background
 import qs.modules.notification
 import qs.modules.panel
+import qs.modules.notificationCenter
 import qs.services
 import qs.settings
 import qs.ipc
@@ -16,6 +17,8 @@ import qs.config
 
 ShellRoot {
     id: root
+
+    settings.watchFiles: false
 
     Variants {
         model: Quickshell.screens
@@ -67,7 +70,18 @@ ShellRoot {
             LazyLoader {
                 activeAsync: States.showQS
                 Panel {
-                    screen: toplevel.modelData
+                    anchor.window: toplevel
+                    anchor.rect.x: toplevel.screen.width - this.implicitWidth
+                    anchor.rect.y: toplevel.screen.height - toplevel.implicitHeight
+                }
+            }
+
+            LazyLoader {
+                activeAsync: States.showNC
+                NotificationCenter {
+                    anchor.window: toplevel
+                    anchor.rect.x: toplevel.screen.width / 2 - this.implicitWidth / 2
+                    anchor.rect.y: toplevel.screen.height - toplevel.implicitHeight
                 }
             }
         }
