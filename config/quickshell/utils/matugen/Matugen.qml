@@ -9,7 +9,8 @@ Singleton {
     function generate(image: string, mode: string) {
         Quickshell.execDetached(["matugen", 
             "-t", "scheme-neutral", 
-            "--source-color-index", "0",
+            "--prefer", "darkness",
+            // "--source-color-index", "0",
             "-m", mode, "image", image
         ])
     }
