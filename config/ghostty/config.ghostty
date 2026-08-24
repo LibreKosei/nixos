@@ -1,0 +1,7 @@
+font-family = "monospace"
+font-size = 15
+window-padding-x = 20
+window-padding-y = 20
+background-opacity = 0.75
+
+theme = "Matugen"
