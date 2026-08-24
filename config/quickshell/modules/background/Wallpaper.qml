@@ -17,6 +17,7 @@ Item {
         asynchronous: true
         source: root.source
         cache: true
+        fillMode: Image.PreserveAspectCrop
         Component.onCompleted: console.log("Background loaded: ", visible)
     }
 
