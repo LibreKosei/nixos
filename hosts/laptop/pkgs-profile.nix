@@ -28,6 +28,9 @@ in
         htop
         libnotify
         fyi
+        bitwarden-cli
+        proton-pass-cli
+        gpu-screen-recorder
     ];
 
     workflow = with pkgs; [

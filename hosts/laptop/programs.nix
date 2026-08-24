@@ -37,5 +37,10 @@
         direnv = {
             enable = true;
         };
+
+        noctalia = {
+            enable = true;
+            systemd.enable = true;
+        };
     };
 }

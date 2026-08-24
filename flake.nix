@@ -53,9 +53,13 @@
             url = "github:FreesmTeam/FreesmLauncher";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        noctalia = {
+            url = "github:noctalia-dev/noctalia";
+        };
     };
 
-    outputs = { self, nixpkgs, hyprland, niri, ... }@inputs: 
+    outputs = { self, nixpkgs, hyprland, niri, noctalia, ... }@inputs: 
     let
         system = "x86_64-linux";
         lib = nixpkgs.lib;
@@ -68,6 +72,7 @@
             modules = [
                 hyprland.nixosModules.default
                 niri.nixosModules.niri
+                noctalia.nixosModules.default
                 ./hosts/laptop/configuration.nix                
                 ./modules/default.nix
                 { nixpkgs.overlays = [ (import ./overlays inputs) niri.overlays.niri ]; }
