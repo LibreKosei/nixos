@@ -18,6 +18,8 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: Quickshell" { 
         spawn "qs" "ipc" "call" "shell" "toggleLauncher"; 
     }
+    Mod+Shift+Alt+L allow-when-locked=true { spawn "qs" "ipc" "call" "locker" "lock"; }
+    Mod+Shift+Alt+R allow-when-locked=true { spawn-sh "qs kill ; pkill qs ; qs -d"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

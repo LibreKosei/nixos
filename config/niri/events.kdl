@@ -1,3 +1,4 @@
 switch-events {
-    lid-close { spawn "sh" "-c" "qs ipc call locker lock && systemctl suspend";}
+    // lid-close { spawn "sh" "-c" "qs ipc call locker lock && systemctl suspend";}
+    lid-close { spawn "systemctl suspend"; }
 }
