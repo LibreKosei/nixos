@@ -8,7 +8,7 @@
     ~/.config/gtk-3.0/settings.ini:   config/gtk-3.0/settings.ini
     ~/.config/gtk-4.0/settings.ini:   config/gtk-4.0/settings.ini
     ~/.config/icons/index.theme:      config/icons/index.theme
-    ~/.config/kitty/kitty.conf:       config/kitty/kitty.conf
+    ~/.config/kitty:                  config/kitty
     ~/.config/starship.toml:          config/starship/starship.toml
     ~/.config/tmux/tmux.conf:         config/tmux/tmux.conf
     ~/.zshrc:                         config/zsh/.zshrc
@@ -18,3 +18,5 @@
     ~/.config/uwsm:                   config/uwsm
     ~/.config/neuvim:                 config/neuvim
     ~/.config/quickshell:             config/quickshell
+    ~/.config/matugen:                config/matugen
+    ~/.config/ghostty:                config/ghostty
