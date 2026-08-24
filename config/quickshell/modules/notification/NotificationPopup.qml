@@ -17,18 +17,6 @@ PanelWindow {
         right: true
     }
 
-    property var popups: {
-        Notification.revision
-        const arr = []
-        const list = Notification.notifications
-        for (let i = 0; i < list.count; i++) {
-            const w = list.get(i).wrapper
-            if (w.popup) arr.push(w)
-        }
-
-        return arr
-    }
-
     ListView {
         id: popupList
 
@@ -38,24 +26,33 @@ PanelWindow {
             right: parent.right
             left: parent.left
         }
-        add: Transition {
-            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 220; easing.type: Easing.OutCubic }
-        }
-        remove: Transition {
-            NumberAnimation { property: "opacity"; to: 0; duration: 160; easing.type: Easing.InCubic }
-        }
-        displaced: Transition {
-            NumberAnimation { properties: "y"; duration: 200; easing.type: Easing.OutCubic }
-        }
+
         spacing: 8
         implicitWidth: 500
-        implicitHeight: contentHeight + anchors.topMargin + 4 * count
+        implicitHeight: 0 < count ? contentHeight + anchors.topMargin + 20 : 0
+        clip: true
+        interactive: false
         model: Notification.popups
         delegate: Notif {
             wrapper: modelData
+            width: 350
             anchors {
                 horizontalCenter: parent.horizontalCenter
             }
+            Timer {
+                interval: Math.max(0, wrapper.expiresAt - Date.now())
+                running: wrapper.popup && wrapper.expiresAt > 0
+                repeat: false
+                onTriggered: Notification.removePopup(wrapper.notificationID)
+            }
         }
+
+        // onImplicitHeightChanged: {
+        //     console.log("Notification popup list height: ", implicitHeight)
+        // }
     }
+
+    // onImplicitHeightChanged: {
+    //     console.log("Notification popup window height: ", implicitHeight)
+    // }
 }
