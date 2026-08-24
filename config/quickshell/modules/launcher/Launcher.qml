@@ -34,7 +34,7 @@ PanelWindow {
         id: bg
         implicitHeight: 800
         implicitWidth: 800
-        color: Qt.alpha(Colors.md3.surface, 0.7)
+        color: Qt.alpha(Colors.md3.surface, 1)
         radius: General.radius.xl
 
         ColumnLayout {
