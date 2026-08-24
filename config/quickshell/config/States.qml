@@ -12,4 +12,6 @@ PersistentProperties {
     property bool showLauncher: false
     property bool locked: false
     property bool showQS: false
+    property bool showNC: false
+    property bool caffein: false
 }
