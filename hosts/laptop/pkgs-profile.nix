@@ -88,7 +88,6 @@ in
             pkgs.kdePackages.qtimageformats
         ])
         inputs.matugen.packages.${system}.default
-        libdisplay-info
         cachix
     ];
 
