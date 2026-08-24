@@ -11,6 +11,7 @@ Item {
     property bool shadowEnabled: false
     property var direction: FlexboxLayout.Row
     property color backgroundColor: Colors.md3.primary_container
+    property real radius: General.radius.medium
 
     implicitHeight: 48
     implicitWidth: layout.implicitWidth + General.margin.medium * 2
@@ -32,7 +33,7 @@ Item {
 
         anchors.fill: parent
         color: root.backgroundColor
-        radius: General.radius.medium
+        radius: root.radius
     }
 
     FlexboxLayout {

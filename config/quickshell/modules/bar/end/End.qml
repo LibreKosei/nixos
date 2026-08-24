@@ -24,12 +24,14 @@ FlexboxLayout {
         Icon {
             id: networkIcon
             iconName: Network.getWifiStatusIcon(Network.currentWifi)
+            iconColor: Colors.md3.on_surface
         }
 
 
         Icon {
             id: volumeIcon
             iconName: Audio.getIconName(Audio.sink)
+            iconColor: Colors.md3.on_surface
         }
 
         Icon {
@@ -51,7 +53,7 @@ FlexboxLayout {
             id: batteryText
             text: 99 <= Battery.mbHealth ? "max" : `${Battery.mbHealth}%`
             charCount: 3
-            color: Config.white
+            color: Colors.md3.on_surface
         }
     }
 
