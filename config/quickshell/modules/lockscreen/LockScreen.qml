@@ -22,7 +22,9 @@ Scope {
 
         locked: Config.persistent.locked
 
-        onLockedChanged: if (!locked) Config.persistent.locked = false
+        onLockedChanged: if (!locked && Config.persistent.locked) {
+            lock.locked = true
+        }
 
         WlSessionLockSurface {
             Surface {
