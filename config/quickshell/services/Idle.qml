@@ -5,11 +5,14 @@ import Quickshell.Io
 import QtQuick
 import QtQml
 import qs.settings
+import qs.config
 
 // All timers start at the same time, not sequentially
 Singleton {
     id: root
 
+    property bool enable: !States.caffein
+    property bool enableLock: false
     property bool active: idleMonitor.isIdle
     property real fstInterval: 150
     property real sndInterval: 210
@@ -31,11 +34,14 @@ Singleton {
 
     onActiveChanged: (state) => {
         // console.log("[Idle Monitor] current state: ", root.active)
+        if (!root.enable) {
+            return
+        }
         if (root.active) {
             Brightness.save()
             dimTimer.start()
             dimTimer2.start()
-            lockTimer.start()
+            if (root.enableLock) { lockTimer.start() }
             suspender.start()
         } else {
             dimTimer.stop()
