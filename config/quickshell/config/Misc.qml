@@ -23,13 +23,21 @@ Singleton {
 
             property string directory
             property string filename
+            property bool dark
 
             onDirectoryChanged: { 
-                Matugen.generate(Quickshell.env("HOME") + directory + filename, "dark") 
+                var mode = wallpaperJsonAdapter.dark ? "dark" : "light"
+                Matugen.generate(Quickshell.env("HOME") + directory + filename, mode) 
                 console.log("Theme changed")
             }
             onFilenameChanged: {
-                Matugen.generate(Quickshell.env("HOME") + directory + filename, "dark") 
+                var mode = wallpaperJsonAdapter.dark ? "dark" : "light"
+                Matugen.generate(Quickshell.env("HOME") + directory + filename, mode) 
+                console.log("Theme changed")
+            }
+            onDarkChanged: {
+                var mode = wallpaperJsonAdapter.dark ? "dark" : "light"
+                Matugen.generate(Quickshell.env("HOME") + directory + filename, mode) 
                 console.log("Theme changed")
             }
         }
