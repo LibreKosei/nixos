@@ -16,7 +16,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Shift+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: Quickshell" { 
-        spawn "qs" "ipc" "call" "shell" "toggleLauncher"; 
+        // spawn "qs" "ipc" "call" "shell" "toggleLauncher"; 
+        spawn-sh "noctalia msg panel-toggle launcher"
     }
     Mod+Shift+Alt+L allow-when-locked=true { spawn "qs" "ipc" "call" "locker" "lock"; }
     Mod+Shift+Alt+R allow-when-locked=true { spawn-sh "qs kill ; pkill qs ; qs -d"; }
@@ -46,8 +47,10 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "ipc" "call" "brightness" "increase" "5"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "ipc" "call" "brightness" "decrease" "5"; }
+    // XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "ipc" "call" "brightness" "increase" "5"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "ipc" "call" "brightness" "decrease" "5"; }
+    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,

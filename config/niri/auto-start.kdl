@@ -1,3 +1,4 @@
 spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "otd-daemon"
-spawn-at-startup "qs" "-d"
+spawn-at-startup "noctalia"
+// spawn-at-startup "qs" "-d"
