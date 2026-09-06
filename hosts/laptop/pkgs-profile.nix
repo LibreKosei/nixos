@@ -92,6 +92,8 @@ in
         ])
         inputs.matugen.packages.${system}.default
         cachix
+        powertop
+        glib
     ];
 
     network = with pkgs; [
@@ -102,6 +104,8 @@ in
     icons = with pkgs; [
         papirus-icon-theme
         adwaita-icon-theme
+        fluent-icon-theme
+        morewaita-icon-theme
         inputs.pebble-icon-theme.packages.${system}.all
     ];
 

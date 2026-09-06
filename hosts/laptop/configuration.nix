@@ -88,6 +88,7 @@ in
 
         tlp = {
             enable = true;
+            pd.enable = true;
         };
 
         tailscale.enable = true;
@@ -95,7 +96,10 @@ in
         dbus.packages = [ pkgs.nautilus ];
     };
 
-    powerManagement.enable = true;
+    powerManagement = {
+        enable = true;
+        powertop.enable = true;
+    };
 
     security = {
         rtkit.enable = true;
