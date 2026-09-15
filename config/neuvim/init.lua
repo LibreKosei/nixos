@@ -37,4 +37,4 @@ require('lsp.latex')
 require('lsp.svelte')
 
 --- Lua
-vim.cmd.colorscheme("pasteldark")
+vim.cmd.colorscheme("everblush")
