@@ -90,7 +90,7 @@ in
             pkgs.kdePackages.qt5compat
             pkgs.kdePackages.qtimageformats
         ])
-        inputs.matugen.packages.${system}.default
+        matugen
         cachix
         powertop
         glib

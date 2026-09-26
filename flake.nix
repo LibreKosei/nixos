@@ -4,8 +4,6 @@
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-        hyprland.url = "github:hyprwm/Hyprland/v0.56.0";
-
         kvim = { 
             url = "github:LibreKosei/kvim"; 
         };
@@ -16,11 +14,6 @@
         };
 
         nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
-        mangowm = {
-            url = "github:mangowm/mango";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
 
         icon-browser.url = "github:Aylur/icon-browser";
         
@@ -45,10 +38,6 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        matugen = {
-            url = "github:/InioX/Matugen";
-        };
-
         freesmLauncher = {
             url = "github:FreesmTeam/FreesmLauncher";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -59,7 +48,7 @@
         };
     };
 
-    outputs = { self, nixpkgs, hyprland, niri, noctalia, ... }@inputs: 
+    outputs = { self, nixpkgs, niri, noctalia, ... }@inputs: 
     let
         system = "x86_64-linux";
         lib = nixpkgs.lib;
@@ -70,7 +59,6 @@
             inherit system;
             specialArgs = { inherit inputs; };
             modules = [
-                hyprland.nixosModules.default
                 niri.nixosModules.niri
                 noctalia.nixosModules.default
                 ./hosts/laptop/configuration.nix                
