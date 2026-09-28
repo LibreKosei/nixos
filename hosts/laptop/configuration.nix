@@ -207,7 +207,7 @@ in
     };
 
     # time 
-    time.timeZone = "Asia/Tokyo";
+    time.timeZone = "Asia/Kuala_Lumpur";
 
     # font
     fonts = {
