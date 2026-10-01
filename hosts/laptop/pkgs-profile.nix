@@ -71,6 +71,7 @@ in
         inputs.freesmLauncher.packages.${system}.freesmlauncher
         inputs.icon-browser.packages.${system}.default
         nautilus
+        amberol
     ];
 
     email = with pkgs; [
