@@ -8,11 +8,6 @@
             url = "github:LibreKosei/kvim"; 
         };
 
-        quickshell = {
-            url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
         nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
         icon-browser.url = "github:Aylur/icon-browser";
@@ -45,6 +40,7 @@
 
         noctalia = {
             url = "github:noctalia-dev/noctalia";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 

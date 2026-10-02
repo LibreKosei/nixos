@@ -71,7 +71,8 @@ in
         inputs.freesmLauncher.packages.${system}.freesmlauncher
         inputs.icon-browser.packages.${system}.default
         nautilus
-        amberol
+        gapless
+        kid3
     ];
 
     email = with pkgs; [
@@ -85,12 +86,12 @@ in
 
     misc = with pkgs; [
         addwater
-        (inputs.quickshell.packages.${system}.default.withModules [
-            pkgs.kdePackages.kirigami
-            pkgs.kdePackages.qtmultimedia
-            pkgs.kdePackages.qt5compat
-            pkgs.kdePackages.qtimageformats
-        ])
+        # (inputs.quickshell.packages.${system}.default.withModules [
+        #     pkgs.kdePackages.kirigami
+        #     pkgs.kdePackages.qtmultimedia
+        #     pkgs.kdePackages.qt5compat
+        #     pkgs.kdePackages.qtimageformats
+        # ])
         matugen
         cachix
         powertop
