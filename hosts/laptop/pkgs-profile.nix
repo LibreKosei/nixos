@@ -58,6 +58,19 @@ in
 	      kitty
 	      foot
         goofcord
+        vesktop
+        whatsie
+        epiphany
+        (pkgs.symlinkJoin {
+            name = "tagger-wrapped";
+            paths = [ pkgs.tagger ];
+            nativeBuildInputs = [ pkgs.makeWrapper ];
+            postBuild = ''
+                wrapProgram $out/bin/NickvisionTagger.GNOME \
+                  --prefix XDG_DATA_DIRS : "${pkgs.gtk4}/share/gsettings-schemas/${pkgs.gtk4.name}" \
+                  --prefix XDG_DATA_DIRS : "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+            '';
+         })
         kdePackages.kdenlive
         (prismlauncher.override {
             additionalPrograms = [ ffmpeg ];
