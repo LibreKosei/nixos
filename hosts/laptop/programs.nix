@@ -42,5 +42,9 @@
             enable = true;
             systemd.enable = true;
         };
+
+        dconf = {
+            enable = true;
+        };
     };
 }
