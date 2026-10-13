@@ -43,6 +43,7 @@ in
     browsers = with pkgs; [
         firefox
         ungoogled-chromium
+        librewolf
     ];
 
     editors = with pkgs; [
@@ -57,10 +58,11 @@ in
         libreoffice
 	      kitty
 	      foot
-        goofcord
         vesktop
         whatsie
         epiphany
+        parabolic
+        errands
         (pkgs.symlinkJoin {
             name = "tagger-wrapped";
             paths = [ pkgs.tagger ];
