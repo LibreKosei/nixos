@@ -88,5 +88,11 @@ require("lz.n").load {
         colorscheme = {
             "one_monokai",
         },
-    }
+    },
+    {
+        "oxocarbon.nvim",
+        colorscheme = {
+            "oxocarbon",
+        },
+    },
 }
