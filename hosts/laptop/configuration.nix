@@ -25,6 +25,10 @@ in
             efi.canTouchEfiVariables = true;
         };
 
+        blacklistedKernelModules = [ "pcspkr" "snd_pscp" ];
+        extraModprobeConfig = ''
+            options snd_hda_intel beep_mode=0
+        '';
         kernelParams = [ "usbcore.autosuspend=-1" ];
     };
 
