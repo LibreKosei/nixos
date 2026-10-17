@@ -63,6 +63,11 @@ in
         epiphany
         parabolic
         errands
+        ente-auth
+        proton-authenticator
+        authenticator
+        rnote
+        flare-signal
         (pkgs.symlinkJoin {
             name = "tagger-wrapped";
             paths = [ pkgs.tagger ];
@@ -111,6 +116,7 @@ in
         cachix
         powertop
         glib
+        libsecret
     ];
 
     network = with pkgs; [
