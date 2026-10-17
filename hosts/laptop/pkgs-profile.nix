@@ -11,6 +11,7 @@ in
     audio = with pkgs; [
         pavucontrol
         crosspipe
+        alsa-utils
     ];
 
     shell = with pkgs; [
