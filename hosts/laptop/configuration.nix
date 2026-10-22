@@ -98,6 +98,15 @@ in
         tailscale.enable = true;
 
         dbus.packages = [ pkgs.nautilus ];
+
+        syncthing = {
+            enable = true;
+            openDefaultPorts = true;
+            user = "kosei";
+            group = "users";
+            dataDir = "/home/kosei";
+            configDir = "/home/kosei/.config/syncthing";
+        };
     };
 
     powerManagement = {
