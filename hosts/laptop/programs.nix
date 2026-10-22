@@ -27,6 +27,10 @@
             package = pkgs.niri-unstable;
         };
 
+        umbriel = {
+            enable = true;
+        };
+
         tmux = {
             enable = true;
             baseIndex = 1;
