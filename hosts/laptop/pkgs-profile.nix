@@ -69,6 +69,8 @@ in
         authenticator
         rnote
         flare-signal
+        gnome-secrets
+        keepassxc
         (pkgs.symlinkJoin {
             name = "tagger-wrapped";
             paths = [ pkgs.tagger ];
