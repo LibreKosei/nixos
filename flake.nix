@@ -27,11 +27,6 @@
             url = "github:fleugle/Pebble-Icon-Theme-flake";
         };
 
-        niri = {
-            url = "github:sodiboo/niri-flake?rev=6bb99ff875919f03ea6054026619d999061e1170";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
         freesmLauncher = {
             url = "github:FreesmTeam/FreesmLauncher";
         };
@@ -44,7 +39,7 @@
         umbriel.url = "github:noctalia-dev/umbriel/cachix";
     };
 
-    outputs = { self, nixpkgs, niri, noctalia, umbriel, ... }@inputs: 
+    outputs = { self, nixpkgs, noctalia, umbriel, ... }@inputs: 
     let
         system = "x86_64-linux";
         lib = nixpkgs.lib;
@@ -55,12 +50,11 @@
             inherit system;
             specialArgs = { inherit inputs; };
             modules = [
-                niri.nixosModules.niri
                 noctalia.nixosModules.default
                 umbriel.nixosModules.default
                 ./hosts/laptop/configuration.nix                
                 ./modules/default.nix
-                { nixpkgs.overlays = [ (import ./overlays inputs) niri.overlays.niri ]; }
+                { nixpkgs.overlays = [ (import ./overlays inputs) ]; }
             ];
         };
     };
