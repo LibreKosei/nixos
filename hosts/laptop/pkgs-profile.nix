@@ -60,14 +60,12 @@ in
 	      kitty
 	      foot
         vesktop
-        whatsie
         epiphany
         parabolic
         errands
-        ente-auth
-        proton-authenticator
         authenticator
         rnote
+        rufin
         flare-signal
         gnome-secrets
         keepassxc
@@ -95,7 +93,6 @@ in
         inputs.icon-browser.packages.${system}.default
         nautilus
         gapless
-        kid3
     ];
 
     email = with pkgs; [
