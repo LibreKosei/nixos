@@ -20,7 +20,6 @@ in
         zsh-autosuggestions
         zsh-syntax-highlighting
         eza
-        yazi
         fzf
         zoxide
         starship
@@ -28,16 +27,11 @@ in
         killall
         htop
         libnotify
-        fyi
-        bitwarden-cli
-        proton-pass-cli
-        gpu-screen-recorder
     ];
 
     workflow = with pkgs; [
         git
         lazygit
-        gnumake
         dotbot
     ];
 
