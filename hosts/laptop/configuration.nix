@@ -184,6 +184,7 @@ in
             GAME_NATIVE_GLFW = "1";
             XCURSOR_THEME = "Bibata-Modern-Amber";
             XCURSOR_SIZE = "24";
+            GTK_USE_PORTAL = "1";
         };
         etc = {
             "xdg-desktop-portal/hyprland-portals.conf" = {
