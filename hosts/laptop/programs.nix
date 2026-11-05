@@ -13,9 +13,7 @@
         yazi = {
             enable = true;
             plugins = with pkgs.yaziPlugins; {
-                drag.package = drag;
-                bookmarks.package = bookmarks;
-                clipboard.package = clipboard;
+                inherit drag bookmarks clipboard;
             };
         };
 
