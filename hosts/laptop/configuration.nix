@@ -66,6 +66,7 @@ in
     services = {
         upower.enable = true;
         gnome.gnome-keyring.enable = true;
+        udisks2.enable = true;
 
         pipewire = {
             enable = true;
