@@ -17,7 +17,8 @@ require("plugins.nvim-tree")
 require("plugins.gitsigns")
 require('plugins.colorizer')
 require('plugins.markview')
-require('plugins.obsidian')
+require('plugins.nvim-ufo')
+-- require('plugins.obsidian')
 require('plugins.vimtex')
 require('plugins.luasnip')
 
@@ -37,4 +38,4 @@ require('lsp.latex')
 require('lsp.svelte')
 
 --- Lua
-vim.cmd.colorscheme("everblush")
+vim.cmd.colorscheme("oxocarbon")
