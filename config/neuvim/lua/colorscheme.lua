@@ -54,6 +54,7 @@ require("lz.n").load {
         "onedarkpro.nvim",
         colorscheme = {
             "onedark",
+            "onelight",
             "onedark_dark",
             "onedark_vivid",
         },
@@ -72,12 +73,7 @@ require("lz.n").load {
     },
     {
         "bamboo.nvim",
-        colorscheme = {
-            "bamboo",
-            "bamboo-light",
-            "bamboo-vulgaris",
-            "bamboo-multiplex",
-        },
+        colorscheme = match_colors("bamboo")
     },
     {
         "vimplugin-pastel.nvim",
