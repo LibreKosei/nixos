@@ -11,7 +11,7 @@ $line_break\
 $character\
 """
 
-palette = 'everblush'
+palette = "everblush"
 
 [palettes.everblush]
 background = "#141b1e"
@@ -60,3 +60,4 @@ behind = '⇣${count}'
 [time]
 disabled = false
 format = " [󱦟 $time](bold blue)"
+
