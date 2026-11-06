@@ -43,7 +43,7 @@ in
 
     editors = with pkgs; [
         inputs.kvim.packages.${system}.neuvim
-        nvchad
+        # nvchad
     ];
 
     desktop = with pkgs; [
@@ -100,12 +100,6 @@ in
 
     misc = with pkgs; [
         addwater
-        # (inputs.quickshell.packages.${system}.default.withModules [
-        #     pkgs.kdePackages.kirigami
-        #     pkgs.kdePackages.qtmultimedia
-        #     pkgs.kdePackages.qt5compat
-        #     pkgs.kdePackages.qtimageformats
-        # ])
         matugen
         cachix
         powertop

@@ -6,16 +6,7 @@ inputs: final: prev: {
                 stylua
                 lua-language-server
                 bash-language-server
-                # HTML and CSS
-                vscode-langservers-extracted
-                # QML Language Server
-                kdePackages.qtdeclarative 
-
-                # Typescript
-                typescript-language-server
+                nixd
             ];  
-        })
-        .overrideAttrs (old: {
-            nativeBuildInputs = old.nativeBuildInputs ++ [ prev.kdePackages.wrapQtAppsHook ];
         });
 }

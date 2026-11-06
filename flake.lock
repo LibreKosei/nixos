@@ -123,29 +123,6 @@
         "type": "github"
       }
     },
-    "nix4nvchad": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "nvchad-starter": [
-          "nvchad-starter"
-        ]
-      },
-      "locked": {
-        "lastModified": 1790676177,
-        "narHash": "sha256-nN1Fa6l2cVkWA/Fdy6xgsIJ1wVtLmtWN/R35XyM/WxE=",
-        "owner": "nix-community",
-        "repo": "nix4nvchad",
-        "rev": "0d9b3fab7cc2d224e111032eb8338ae120d0562a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nix4nvchad",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1792502884,
@@ -275,22 +252,6 @@
         "type": "github"
       }
     },
-    "nvchad-starter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1783145055,
-        "narHash": "sha256-vf7rkzSY2ZURKjZB0Iihvtwf0NNXEG8/QbR95+9d3bY=",
-        "owner": "LibreKosei",
-        "repo": "nvchad",
-        "rev": "b2286825216012ed354b4685a429a954ee5d58bd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LibreKosei",
-        "repo": "nvchad",
-        "type": "github"
-      }
-    },
     "pebble-icon-theme": {
       "inputs": {
         "nixpkgs": "nixpkgs_6"
@@ -315,10 +276,8 @@
         "icon-browser": "icon-browser",
         "kvim": "kvim",
         "nix-minecraft": "nix-minecraft",
-        "nix4nvchad": "nix4nvchad",
         "nixpkgs": "nixpkgs_5",
         "noctalia": "noctalia",
-        "nvchad-starter": "nvchad-starter",
         "pebble-icon-theme": "pebble-icon-theme",
         "umbriel": "umbriel"
       }
