@@ -1,0 +1,10 @@
+[input.mouse]
+natural_scroll = false
+
+[input.touchpad]
+tap = true
+natural_scroll = true
+
+[input.cursor]
+theme = "Bibata-Modern-Amber"
+size = 24
