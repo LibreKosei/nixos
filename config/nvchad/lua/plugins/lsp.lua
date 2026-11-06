@@ -3,7 +3,7 @@ return {
         "nvim-lspconfig",
         event = "User FilePost",
         after = function() 
-            require "configs.lspconfig"
+            require "config.lspconfig"
         end,
     }
 }

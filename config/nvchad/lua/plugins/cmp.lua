@@ -12,7 +12,8 @@ return {
             dofile(vim.g.base46_cache .. "cmp")
             local cmp = require("cmp")
             local luasnip = require("luasnip")
-            local opts = "nvchad.configs.cmp"
+            local opts = require "nvchad.configs.cmp"
+            opts.completion = opts.completion or {}
             opts.completion.autocomplete = false
             opts.preselect = cmp.PreselectMode.None
             
