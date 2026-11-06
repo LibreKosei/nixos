@@ -50,3 +50,10 @@ g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 g.mapleader = ' '
+
+--- folding
+o.foldcolumn = "2"
+o.foldlevel = 99  
+o.foldlevelstart = 99
+o.foldenable = true
+opt.viewoptions = { "folds", "cursor" }
