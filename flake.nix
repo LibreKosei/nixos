@@ -28,7 +28,7 @@
         umbriel.url = "github:noctalia-dev/umbriel/cachix";
     };
 
-    outputs = { self, nixpkgs, noctalia, umbriel, ... }@inputs: 
+    outputs = { self, nixpkgs, noctalia, umbriel, kvim, ... }@inputs: 
     let
         system = "x86_64-linux";
         lib = nixpkgs.lib;
@@ -41,6 +41,7 @@
             modules = [
                 noctalia.nixosModules.default
                 umbriel.nixosModules.default
+                kvim.nixosModules.default
                 ./hosts/laptop/configuration.nix                
                 ./modules/default.nix
                 # { nixpkgs.overlays = [ (import ./overlays inputs) ]; }

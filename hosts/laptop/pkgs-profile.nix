@@ -42,7 +42,7 @@ in
     ];
 
     editors = with pkgs; [
-        inputs.kvim.packages.${system}.neuvim
+        # inputs.kvim.packages.${system}.neuvim
         # nvchad
     ];
 

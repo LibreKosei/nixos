@@ -56,5 +56,13 @@
         dconf = {
             enable = true;
         };
+
+        kvim = {
+            enable = true;
+            extraPackages = with pkgs; [
+                lua-language-server
+                markdown-oxide
+            ];
+        };
     };
 }
