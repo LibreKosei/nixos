@@ -54,14 +54,10 @@ in
 	      kitty
 	      foot
         vesktop
-        epiphany
         parabolic
         errands
         authenticator
         rnote
-        rufin
-        flare-signal
-        gnome-secrets
         keepassxc
         (pkgs.symlinkJoin {
             name = "tagger-wrapped";
@@ -73,7 +69,6 @@ in
                   --prefix XDG_DATA_DIRS : "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
             '';
          })
-        kdePackages.kdenlive
         (prismlauncher.override {
             additionalPrograms = [ ffmpeg ];
             additionalLibs = [ glfw3-minecraft ];
@@ -99,7 +94,6 @@ in
     ];
 
     misc = with pkgs; [
-        addwater
         matugen
         cachix
         powertop
@@ -126,7 +120,6 @@ in
 
     wayland = with pkgs; [
         wl-clipboard
-        hyprshot
         xwayland-satellite
     ];
 }
