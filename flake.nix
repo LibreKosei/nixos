@@ -4,21 +4,15 @@
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-        kvim = { 
-            url = "github:LibreKosei/kvim"; 
-        };
+        kvim.url = "github:LibreKosei/kvim"; 
 
         nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
         icon-browser.url = "github:Aylur/icon-browser";
         
-        pebble-icon-theme = {
-            url = "github:fleugle/Pebble-Icon-Theme-flake";
-        };
+        pebble-icon-theme.url = "github:fleugle/Pebble-Icon-Theme-flake";
 
-        freesmLauncher = {
-            url = "github:FreesmTeam/FreesmLauncher";
-        };
+        freesmLauncher.url = "github:FreesmTeam/FreesmLauncher";
 
         noctalia = {
             url = "github:noctalia-dev/noctalia";
@@ -26,6 +20,8 @@
         };
 
         umbriel.url = "github:noctalia-dev/umbriel/cachix";
+
+        hylki.url = "github:clementpoiret/hylki-flake";
     };
 
     outputs = { self, nixpkgs, noctalia, umbriel, kvim, ... }@inputs: 

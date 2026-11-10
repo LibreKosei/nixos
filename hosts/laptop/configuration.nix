@@ -65,7 +65,11 @@ in
 
     services = {
         upower.enable = true;
-        gnome.gnome-keyring.enable = true;
+        gnome = {
+            gnome-keyring.enable = true;
+            gnome-online-accounts.enable = true;
+        };
+        
         udisks2.enable = true;
 
         pipewire = {

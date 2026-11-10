@@ -47,6 +47,7 @@ in
     ];
 
     desktop = with pkgs; [
+        gnome-control-center
         xournalpp
         obsidian
         signal-desktop
@@ -85,7 +86,10 @@ in
     ];
 
     email = with pkgs; [
+        protonmail-bridge
+        convey
         thunderbird
+        inputs.hylki.packages.${system}.default
     ];
 
     qtPackages = with pkgs.kdePackages; [
