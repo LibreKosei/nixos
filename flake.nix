@@ -14,10 +14,7 @@
 
         freesmLauncher.url = "github:FreesmTeam/FreesmLauncher";
 
-        noctalia = {
-            url = "github:noctalia-dev/noctalia";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
+        noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
         umbriel.url = "github:noctalia-dev/umbriel/cachix";
 
