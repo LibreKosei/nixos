@@ -68,7 +68,10 @@ in
         gnome = {
             gnome-keyring.enable = true;
             gnome-online-accounts.enable = true;
+            evolution-data-server.enable = true;
         };
+
+        libinput.enable = true;
         
         udisks2.enable = true;
 

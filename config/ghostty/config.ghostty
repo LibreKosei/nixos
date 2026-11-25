@@ -1,7 +1,16 @@
 font-family = "monospace"
 font-size = 15
-window-padding-x = 20
-window-padding-y = 20
+# window-padding-x = 20
+# window-padding-y = 20
 background-opacity = 0.75
 
 theme = "Matugen"
+window-theme = system          
+gtk-titlebar = true            
+gtk-tabs-location = top        
+gtk-wide-tabs = false          
+gtk-toolbar-style = flat       
+theme = light:Adwaita Light,dark:Adwaita Dark  
+font-family = Adwaita Mono       
+window-padding-x = 8
+window-padding-y = 8

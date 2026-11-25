@@ -6,5 +6,16 @@ tap = true
 natural_scroll = true
 
 [input.cursor]
+hardware_cursor = false
 theme = "Bibata-Modern-Amber"
 size = 24
+
+[input.tablet]
+map_to_output = "eDP-1"
+# map_to_focused_window = true
+# map_to_focused_output = true
+calibration_matrix = [1.03226, 0.0, -0.03226, 0.0, 1.0, 0.0]
+
+[[input.device]]
+name = "Wacom Co.,Ltd. CTL-472 Mouse"
+enabled = false

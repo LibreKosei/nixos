@@ -5,7 +5,7 @@ files = ["inputs.toml", "window_rule.toml", "keybinds.toml", "scratchpad.toml"]
 files = ["noctalia.toml"]
 
 [general]
-autostart = ["noctalia"]
+autostart = ["noctalia", "otd-daemon"]
 xwayland_native_resolution = true
 
 [events]

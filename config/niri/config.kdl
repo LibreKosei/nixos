@@ -49,3 +49,5 @@ animations {
 }
 
 
+
+include "noctalia.kdl"
