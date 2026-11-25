@@ -33,6 +33,7 @@ in
         git
         lazygit
         dotbot
+        cambalache
     ];
 
     browsers = with pkgs; [
@@ -51,9 +52,21 @@ in
         xournalpp
         obsidian
         signal-desktop
-        libreoffice
+        (symlinkJoin {
+          name = "libreoffice-themed";
+          paths = [ libreoffice ];
+          nativeBuildInputs = [ makeWrapper ];
+          postBuild = ''
+            for bin in $out/bin/*; do
+              wrapProgram "$bin" \
+                --set GTK_USE_PORTAL "1"
+            done
+          '';
+        })
 	      kitty
 	      foot
+        blackbox-terminal
+        ptyxis
         vesktop
         parabolic
         errands
@@ -103,6 +116,13 @@ in
         powertop
         glib
         libsecret
+        libinput
+        gnome-themes-extra
+        gsettings-desktop-schemas
+        adw-gtk3
+        colloid-gtk-theme
+        fluent-gtk-theme
+        orchis-theme
     ];
 
     network = with pkgs; [
